@@ -21,7 +21,7 @@ class Header extends React.Component {
               </Link>
             </div>
             <div>
-              <Link className="link-header" to="/">
+              <Link className="link-header" to="/assure-ton-permis">
                 Assure Ton Permis !
               </Link>
             </div>
@@ -34,7 +34,7 @@ class Header extends React.Component {
             </div>
             <div className="button-header">
               <Link className="link-button-header" to="/log_in">
-              Connexion
+                Connexion
               </Link>
             </div>
           </div>
