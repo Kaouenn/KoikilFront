@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #fafafa;
+  background: #ffffff;
 }
 
 code {
@@ -112,26 +112,21 @@ a.link-header {
   width: 100%;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.7rem;
-  padding: 2rem;
-  color: #607d8b;
-}
 /* /////////////////////////////////////////////////////SIGNUP/////////////// */
 
 .allcontain-singup {
   display: flex;
-
+  justify-content: center;
   width: 100%;
   background: #02b79a !important;
 }
-.signup-left,
+.signup-left {
+  padding: 50px 80px;
+  width: 50%;
+}
 .signup-right {
   padding: 50px 80px;
   width: 50%;
-
-
 }
 
 .form-title {
@@ -144,17 +139,17 @@ footer {
   text-align: left;
 }
 
-.title-signup{  color: #424B5F;
+.title-signup {
+  color: #424b5f;
   font-family: Helvetica;
   font-size: 48px;
   font-weight: 400;
   line-height: 58px;
   text-align: left;
-
-  }
-  .title-signup > span{  color: #ffffff;
-
-    }
+}
+.title-signup > span {
+  color: #ffffff;
+}
 form {
   background-color: #424b5f;
   border-radius: 10px;
@@ -182,7 +177,7 @@ form {
   margin: auto;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  border-radius: 30px;
+  border-radius: 10px;
   width: 180px;
   height: 52px;
   color: #424b5f;
@@ -191,13 +186,14 @@ form {
   font-weight: 400;
   letter-spacing: -0.23px;
   line-height: 22px;
-  text-align: center;
+  text-align: left;
+  padding-left: 10px;
 }
 .input-signup {
   margin: auto;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  border-radius: 30px;
+  border-radius: 10px;
   width: 383px;
   height: 52px;
   color: #424b5f;
@@ -206,7 +202,8 @@ form {
   font-weight: 400;
   letter-spacing: -0.23px;
   line-height: 22px;
-  text-align: center;
+  text-align: left;
+  padding-left: 10px;
 }
 .button-form {
   margin: auto;
@@ -222,4 +219,87 @@ form {
   line-height: 18px;
   width: 214px;
   text-align: center;
+}
+
+/* ////////////Login/////////////////// */
+
+.allcontain-singup-form {
+  display: flex;
+  padding: 70px 0px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background: #02b79a;
+}
+.login-form-bloc1 {
+  margin-top: -300px;
+
+  width: 40%;
+}
+.input-div-form {
+  display: flex;
+  margin: 60px 0 60px 0;
+}
+.form-login {
+  padding: 50px 10px;
+}
+.title-form-login {
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.forgot-password {
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* //////////////////Assure ton Permis ///////// */
+.allContain-ATP {
+  background: #ffffff;
+}
+.ATP-bloc1-part1,
+.ATP-bloc1-part2 {
+  width: 80%;
+  margin: auto;
+}
+
+.ATP-bloc1-part1 h2,
+.ATP-bloc1-part2 h2 {
+  color: #67758d;
+  font-family: Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+
+  text-align: left;
+}
+
+.ATP-bloc1-part1-text,
+.ATP-bloc1-part2-text {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ATP-bloc1-part1-text p,
+.ATP-bloc1-part2-text p {
+  width: 434px;
+  color: #67758d;
+  font-family: Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 34px;
+}
+
+.ATP-bloc1-part1-text span,
+.ATP-bloc1-part2-text span {
+  color: #02b79a;
 }
