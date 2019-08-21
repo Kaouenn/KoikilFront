@@ -60,6 +60,9 @@ nav > div:nth-child(1) > div:nth-child(2) {
   width: 40%;
   justify-content: flex-start;
 }
+.groupe1-header-loged {
+  margin-left: -500px;
+}
 .groupe2-header {
   width: 40%;
   display: flex;
@@ -75,10 +78,46 @@ nav > div:nth-child(1) > div:nth-child(2) {
   width: 220px;
   height: 50px;
   margin: 0 0px 0 30px;
+  padding: 1px;
 }
+
+.button-header:focus {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffb000;
+  background-color: white;
+  border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  margin: 0 0px 0 30px;
+}
+
 a.link-button-header {
   text-decoration: none;
   color: #ffffff;
+  font-family: Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+link:focus {
+  text-decoration: none;
+  background: #ffffff;
+  color: #ffb000;
+  font-family: Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+a.link-button-header:focus {
+  text-decoration: none;
+  background: #ffffff;
+  color: #ffb000;
   font-family: Helvetica;
   font-size: 22px;
   font-weight: 700;
@@ -105,6 +144,29 @@ a.link-header {
   line-height: 26px;
   text-align: left;
 }
+.loged {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  width: 19.5%;
+}
+.loged-name {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  width: 69px;
+  text-align: center;
+}
+.deconnexion {
+  cursor: pointer;
+  color: #adadad;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+}
 
 .content {
   margin: auto;
@@ -116,17 +178,16 @@ a.link-header {
 
 .allcontain-singup {
   display: flex;
-  justify-content: center;
+  padding: 70px 0px;
   width: 100%;
+  justify-content: space-around;
+  align-items: center;
   background: #02b79a !important;
 }
 .signup-left {
-  padding: 50px 80px;
-  width: 50%;
-}
-.signup-right {
-  padding: 50px 80px;
-  width: 50%;
+  margin-top: -400px;
+
+  width: 40%;
 }
 
 .form-title {
@@ -220,7 +281,18 @@ form {
   width: 214px;
   text-align: center;
 }
+.deja-inscrit {
+  text-decoration: none;
+  margin: 70px !important;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 78px;
 
+  text-align: center;
+}
 /* ////////////Login/////////////////// */
 
 .allcontain-singup-form {
@@ -269,7 +341,6 @@ form {
   width: 80%;
   margin: auto;
 }
-
 .ATP-bloc1-part1 h2,
 .ATP-bloc1-part2 h2 {
   color: #67758d;
@@ -277,8 +348,12 @@ form {
   font-size: 32px;
   font-weight: 400;
   line-height: 38px;
-
   text-align: left;
+}
+
+.ATP-bloc1-part1 span,
+.ATP-bloc1-part2 span {
+  color: #02b79a;
 }
 
 .ATP-bloc1-part1-text,
@@ -302,4 +377,197 @@ form {
 .ATP-bloc1-part1-text span,
 .ATP-bloc1-part2-text span {
   color: #02b79a;
+}
+.ATP-bloc1 {
+  padding: 40px 0px;
+}
+
+.ATP-bloc2 {
+  background-color: rgba(2, 183, 154, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 315px;
+  padding: 5px 0px;
+}
+
+.ATP-bloc2 > h2 {
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  width: 541px;
+  text-align: left;
+}
+
+.souscrire-ATP {
+  background: #ffffff;
+  text-decoration: none;
+  color: #02b79a;
+  font-family: ArialRoundedMTBold;
+  width: 283px;
+  height: 82px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.souscrire-ATP > h3 {
+  font-size: 26px;
+  margin: auto;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.ATP-bloc2 > h4 {
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 34px;
+
+  text-align: left;
+}
+/* //////////////////////////////UploadFiles//////////////// */
+.all-conatain-UploadFiles {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 70vh;
+}
+.all-conatain-UploadFiles > h1 {
+  color: #212b36;
+  font-family: Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 43px;
+  width: 537px;
+  text-align: center;
+}
+.contain-auto-ecole-upload {
+  display: flex;
+
+  justify-content: space-around;
+  width: 90%;
+}
+
+.auto-elcole {
+  padding: 30px;
+  width: 40%;
+  background-color: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px 0 rgba(164, 164, 164, 0.21);
+  height: 390px;
+}
+.auto-elcole > div > input {
+  cursor: pointer;
+  background-color: #eaf0f7;
+  border-radius: 25px;
+  margin: auto;
+  height: 54px;
+  color: #97a4ba;
+  font-family: ArialRoundedMTBold;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  width: 355.95px;
+  text-align: left;
+}
+
+.auto-elcole > h2,
+.upload-docs > h2 {
+  color: #212b36;
+  font-family: ArialRoundedMTBold;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+
+  text-align: center;
+}
+.upload-docs {
+  padding: 30px;
+  width: 40%;
+  background-color: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px 0 rgba(164, 164, 164, 0.21);
+
+  height: 390px;
+}
+
+.upload-docs > div h3 {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  width: 305px;
+  text-align: justify;
+}
+
+.upload-docs > div input {
+  background-color: #eaf0f7;
+  border-radius: 25px;
+  width: 50px;
+  height: 54px;
+  color: #97a4ba;
+  font-family: ArialRoundedMTBold;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+}
+.upload-docs > div input {
+  background-color: #eaf0f7;
+  border-radius: 25px;
+  width: 50px;
+  height: 54px;
+  color: #97a4ba;
+  font-family: ArialRoundedMTBold;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+}
+.input-line {
+  display: flex;
+  align-items: center !important;
+  width: 80%;
+  margin: auto;
+  justify-content: space-around;
+}
+.input-image {
+  margin-top: -15px;
+}
+.label-file {
+  cursor: pointer;
+  color: black;
+  font-weight: 500;
+  padding: 4px 14px;
+  text-align: center;
+  font-size: 35px;
+  border-radius: 50%;
+  background: white;
+  border: 5px solid #6f7f8c;
+}
+.input-file {
+  display: none;
+}
+
+.button-go-contrat {
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ArialRoundedMTBold;
+  font-size: 18px;
+  font-weight: 400;
+  width: 500.24px;
+  text-align: center;
+  background-color: #02b79a;
+  border-radius: 10px;
+  width: 554px;
+  height: 65px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import MainLayout from "./MainLayout";
 import { Formik } from "formik";
 import axios from "axios";
-import { placeholder } from "@babel/types";
+// import { placeholder } from "@babel/types";
 import "./index.css";
 
 class LoginPage extends React.Component {

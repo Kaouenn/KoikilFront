@@ -8,7 +8,11 @@ class Home extends React.Component {
     // const query = queryString.parse(this.props.location.search);
     // console.log(query);
 
-    return <MainLayout>hello</MainLayout>;
+    return (
+      <MainLayout user={this.props.user} setUser={this.props.setUser}>
+        hello
+      </MainLayout>
+    );
   };
 }
 
