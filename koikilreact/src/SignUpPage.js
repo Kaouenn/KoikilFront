@@ -1,6 +1,7 @@
 import React from "react";
 import MainLayout from "./MainLayout";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./index.css";
 
 class SignUpPage extends React.Component {
@@ -63,7 +64,7 @@ class SignUpPage extends React.Component {
       );
       console.log(response.data);
       // si l'API ne retourne pas d'erreur on change le state `user` de App
-      // this.props.setUser(response.data);
+      this.props.setUser(response.data);
     } catch (error) {
       // en cas d'erreur on garde l'erreur dans le state pour pouvoir l'afficher
       console.log(error.message);
@@ -75,7 +76,7 @@ class SignUpPage extends React.Component {
     const passwordMismatch = this.state.password !== this.state.passwordBis;
 
     return (
-      <MainLayout>
+      <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="allcontain-singup">
           <div className="signup-left">
             <h1 className="title-signup">
@@ -84,7 +85,7 @@ class SignUpPage extends React.Component {
             </h1>
           </div>
           <div className="signup-right">
-            <form onSubmit={this.handleSubmit}>
+            <form className="form-login" onSubmit={this.handleSubmit}>
               <div className="nom-prenom">
                 <div className="input-div-nom">
                   <input
@@ -188,6 +189,9 @@ class SignUpPage extends React.Component {
               {/* Si le mail/pass est invalide on affiche l'erreur */}
               {this.state.error && <p>{this.state.error.message}</p>}
             </form>
+            <Link className="deja-inscrit" to="/log_in">
+              Déjà inscrit ? Je me connecte !
+            </Link>
           </div>
         </div>
       </MainLayout>

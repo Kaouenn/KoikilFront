@@ -1,44 +1,72 @@
 import React from "react";
-import "./index.css";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render = () => {
     return (
       <header>
-        <nav>
-          <div className="logo">
-            <h1>
-              <Link className="link-logo" to="/">
-                Koikil
-              </Link>
-            </h1>
-          </div>
-          <div className="groupe1-header">
-            <div>
+        {this.props.user === null ? (
+          <nav>
+            <div className="logo">
+              <h1>
+                <Link className="link-logo" to="/">
+                  Koikil
+                </Link>
+              </h1>
+            </div>
+            <div className="groupe1-header">
               <Link className="link-header" to="/">
                 Accueil
               </Link>
-            </div>
-            <div>
+
               <Link className="link-header" to="/assure-ton-permis">
                 Assure Ton Permis !
               </Link>
             </div>
-          </div>
-          <div className="groupe2-header">
-            <div className="button-header">
-              <Link className="link-button-header" to="/sign_up">
+            <div className="groupe2-header">
+              <Link className="link-button-header button-header" to="/sign_up">
                 Inscription
               </Link>
-            </div>
-            <div className="button-header">
-              <Link className="link-button-header" to="/log_in">
+
+              <Link className="link-button-header button-header" to="/log_in">
                 Connexion
               </Link>
             </div>
-          </div>
-        </nav>
+          </nav>
+        ) : (
+          <nav>
+            <div className="logo">
+              <h1>
+                <Link className="link-logo" to="/">
+                  Koikil
+                </Link>
+              </h1>
+            </div>
+            <div className="groupe1-header-loged">
+              <Link className="link-header" to="/">
+                Accueil
+              </Link>
+
+              <Link className="link-header" to="/assure-ton-permis">
+                Assure Ton Permis !
+              </Link>
+            </div>
+            <div className="loged">
+              <h2 className="loged-name"> {this.props.user.email} </h2>
+
+              <div>
+                <h2
+                  className="deconnexion"
+                  onClick={() => {
+                    this.props.setUser(null);
+                  }}
+                >
+                  Se deconnecter
+                </h2>
+              </div>
+            </div>
+          </nav>
+        )}
       </header>
     );
   };
