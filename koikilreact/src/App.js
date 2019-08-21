@@ -4,18 +4,19 @@ import NotFoundPage from "./NotFoundPage";
 import SignUpPage from "./SignUpPage";
 import LoginPage from "./LoginPage";
 import Home from "./Home";
+import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./uploadFiles";
 
 class App extends React.Component {
-  // state = {
-  //   user: Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null,
-  // };
+  state = {
+    user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null
+  };
 
-  // setUser = user => {
-  //   Cookies.set('user', JSON.stringify(user));
-  //   this.setState({ user });
-  // };
+  setUser = user => {
+    Cookies.set("user", JSON.stringify(user));
+    this.setState({ user });
+  };
 
   render = () => {
     // on créer un un objet qui permet de passer les memes props a plusieurs composants
@@ -31,7 +32,7 @@ class App extends React.Component {
               return <Home />;
             }}
           />
-
+          <Route path="/assure-ton-permis" render={() => <AssureTonPermis />} />
           {/* Si on est connecter (le state user est un objet) on redirige /sign_up vers / */}
           {/* {this.state.user !== null && <Redirect from="/sign_up" to="/" />} */}
           <Route path="/sign_up" render={() => <SignUpPage />} />

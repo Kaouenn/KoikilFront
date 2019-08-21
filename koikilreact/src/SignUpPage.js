@@ -6,12 +6,14 @@ import "./index.css";
 class SignUpPage extends React.Component {
   // on garde un state pour chaque input
   state = {
-    username: "",
+    lastName: "",
+    name: "",
     email: "",
     password: "",
-    adresse: "",
-    postcode: "",
     passwordBis: "",
+    phoneNumber: "",
+    adress: "",
+    postCode: "",
 
     // ce state permet d'afficher des erreur de validation seulement une fois que l'utilisateur a cliqué sur "Login"
     // au lieu d'afficher une erreur des la premiere touche
@@ -20,49 +22,54 @@ class SignUpPage extends React.Component {
     error: null
   };
 
-  // // On utilise le meme handleInputChange pout tous les inputs
-  // handleInputChange = event => {
-  //   const type = event.target.type;
-  //   // on récupère la value, si c'est un input de type `checkbox` on utilise event.target.checked au lieu de event.target.value
-  //   const value =
-  //     type === "checkbox" ? event.target.checked : event.target.value;
-  //   // pour savaoir quel input a été changé on regarde event.target.name (propriété "name" passé a l'input <input name="password" />)
-  //   this.setState({ [event.target.name]: value });
-  // };
+  // On utilise le meme handleInputChange pout tous les inputs
+  handleInputChange = event => {
+    const type = event.target.type;
+    // on récupère la value, si c'est un input de type `checkbox` on utilise event.target.checked au lieu de event.target.value
+    const value =
+      type === "checkbox" ? event.target.checked : event.target.value;
+    // pour savaoir quel input a été changé on regarde event.target.name (propriété "name" passé a l'input <input name="password" />)
+    this.setState({ [event.target.name]: value });
+  };
 
-  // // lorsque le formulaire est envoyé
-  // handleSubmit = async event => {
-  //   // on empeche de comportement par defaut qui provoque un rechargement de la page
-  //   event.preventDefault();
-  //   // validation du mot de passe
-  //   const passwordMismatch = this.state.password !== this.state.passwordBis;
-  //   console.log(passwordMismatch);
-  //   // si la confirmation du mot de passe est invalide on fait change le state submited
-  //   if (passwordMismatch) {
-  //     this.setState({ submited: true });
-  //     return;
-  //   }
-  //   console.log(this.state);
-  //   this.setState({ error: null });
-  //   try {
-  //     // on appelle l'API pour valider le mail/password
-  //     const response = await axios.post(
-  //       "https://leboncoin-api.herokuapp.com/api/user/sign_up",
-  //       {
-  //         email: this.state.mail,
-  //         username: this.state.username,
-  //         password: this.state.password
-  //       }
-  //     );
-  //     console.log(response.data);
-  //     // si l'API ne retourne pas d'erreur on change le state `user` de App
-  //     this.props.setUser(response.data);
-  //   } catch (error) {
-  //     // en cas d'erreur on garde l'erreur dans le state pour pouvoir l'afficher
-  //     console.log(error);
-  //     this.setState({ error: error });
-  //   }
-  // };
+  // lorsque le formulaire est envoyé
+  handleSubmit = async event => {
+    // on empeche de comportement par defaut qui provoque un rechargement de la page
+    event.preventDefault();
+    // validation du mot de passe
+    const passwordMismatch = this.state.password !== this.state.passwordBis;
+    console.log(passwordMismatch);
+    // si la confirmation du mot de passe est invalide on fait change le state submited
+    if (passwordMismatch) {
+      this.setState({ submited: true });
+      return;
+    }
+    // console.log(this.state);
+    this.setState({ error: null });
+    try {
+      // on appelle l'API pour valider le mail/password
+      console.log(this.state);
+      const response = await axios.post(
+        "https://koikil.herokuapp.com/signupUser",
+        {
+          lastName: this.state.lastName,
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          phoneNumber: this.state.phoneNumber,
+          adress: this.state.adress,
+          postCode: this.state.postCode
+        }
+      );
+      console.log(response.data);
+      // si l'API ne retourne pas d'erreur on change le state `user` de App
+      // this.props.setUser(response.data);
+    } catch (error) {
+      // en cas d'erreur on garde l'erreur dans le state pour pouvoir l'afficher
+      console.log(error.message);
+      this.setState({ error: error });
+    }
+  };
 
   render = () => {
     const passwordMismatch = this.state.password !== this.state.passwordBis;
@@ -83,9 +90,9 @@ class SignUpPage extends React.Component {
                   <input
                     className="input-prenom-signup"
                     type="text"
-                    name="username"
+                    name="lastName"
                     placeholder="Nom"
-                    value={this.state.username}
+                    value={this.state.lastName}
                     onChange={this.handleInputChange}
                     required
                   />
@@ -94,9 +101,9 @@ class SignUpPage extends React.Component {
                   <input
                     className="input-prenom-signup"
                     type="text"
-                    name="username"
+                    name="name"
                     placeholder="Prenom"
-                    value={this.state.username}
+                    value={this.state.name}
                     onChange={this.handleInputChange}
                     required
                   />
@@ -107,9 +114,9 @@ class SignUpPage extends React.Component {
                 <input
                   className="input-signup"
                   type="mail"
-                  name="mail"
+                  name="email"
                   placeholder="Email"
-                  value={this.state.mail}
+                  value={this.state.email}
                   onChange={this.handleInputChange}
                   required
                 />
@@ -143,10 +150,10 @@ class SignUpPage extends React.Component {
               <div className="input-div">
                 <input
                   className="input-signup"
-                  type="mail"
-                  name="mail"
+                  type="number"
+                  name="phoneNumber"
                   placeholder="Numéro de téléphone portable"
-                  value={this.state.mail}
+                  value={this.state.phoneNumber}
                   onChange={this.handleInputChange}
                   required
                 />
@@ -154,11 +161,10 @@ class SignUpPage extends React.Component {
               <div className="input-div">
                 <input
                   className="input-signup"
-                  sssss
-                  type="mail"
-                  name="mail"
+                  type="text"
+                  name="adress"
                   placeholder="Adresse"
-                  value={this.state.mail}
+                  value={this.state.adress}
                   onChange={this.handleInputChange}
                   required
                 />
@@ -166,10 +172,10 @@ class SignUpPage extends React.Component {
               <div className="input-div">
                 <input
                   className="input-signup"
-                  type="mail"
-                  name="mail"
+                  type="text"
+                  name="postCode"
                   placeholder="Code postal"
-                  value={this.state.mail}
+                  value={this.state.postCode}
                   onChange={this.handleInputChange}
                   required
                 />
