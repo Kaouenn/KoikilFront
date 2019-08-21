@@ -8,6 +8,7 @@ import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./UploadFiles";
 
+
 class App extends React.Component {
   state = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null
@@ -66,6 +67,8 @@ class App extends React.Component {
             path="/loged1"
             render={() => <UploadFiles {...pageCommonProps} />}
           />
+
+          <Route path="/upload" render={() => <UploadFiles />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
