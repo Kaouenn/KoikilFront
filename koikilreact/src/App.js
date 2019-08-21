@@ -6,6 +6,7 @@ import LoginPage from "./LoginPage";
 import Home from "./Home";
 import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
+import UploadFiles from "./uploadFiles";
 
 class App extends React.Component {
   state = {
@@ -38,6 +39,8 @@ class App extends React.Component {
           {/* Si on est connecter (le state user est un objet) on redirige /sign_up vers / */}
           {/* {this.state.user !== null && <Redirect from="/log_in" to="/" />} */}
           <Route path="/log_in" render={() => <LoginPage />} />
+
+          <Route path="/upload" render={() => <UploadFiles />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
