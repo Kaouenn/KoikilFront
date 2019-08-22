@@ -9,6 +9,7 @@ class UploadFiles extends React.Component {
   sendFiles = () => {
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
+    console.log("2", this.state.files);
     for (let i = 0; i < this.state.files.length; i++) {
       // on ajoute un fichier au FormData
       filesFormdata.append(`file${i}`, this.state.files[i]);
@@ -19,11 +20,14 @@ class UploadFiles extends React.Component {
         "content-type": "multipart/form-data"
       }
     };
+    console.log(filesFormdata);
     axios.post("https://koikil.herokuapp.com/upload", filesFormdata, config);
   };
   handleChange = event => {
     const files = event.target.files;
-    this.setState({ files });
+    this.setState({ files: [...this.state.files, ...files] }, () => {
+      console.log("1", this.state.files);
+    });
   };
   render = () => {
     return (
@@ -46,7 +50,7 @@ class UploadFiles extends React.Component {
               <div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Contrat de formation au permis B entre l’auto-école et vous
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -58,14 +62,15 @@ class UploadFiles extends React.Component {
                       id="file"
                       class="input-file"
                       type="file"
-                      multiple
+                      // multiple
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Livret d'apprentissage indiquant les heures de conduite
+                    réalisées
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -77,14 +82,15 @@ class UploadFiles extends React.Component {
                       id="file"
                       class="input-file"
                       type="file"
-                      multiple
+                      // multiple
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Pièce d'identité du futur assuré préparant l'examen du
+                    permis
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -96,7 +102,7 @@ class UploadFiles extends React.Component {
                       id="file"
                       class="input-file"
                       type="file"
-                      multiple
+                      // multiple
                       onChange={this.handleChange}
                     />
                   </div>
