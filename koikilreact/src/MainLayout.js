@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import "./index.css";
+import Footer from "./Footer";
 
 const MainLayout = props => {
   return (
@@ -8,7 +9,7 @@ const MainLayout = props => {
       {/* MainLayout n'a pas besoin des user mais Header si, il faut donc que MainLayout recoive une props user pour pouvoir la passer a Header */}
       <Header user={props.user} setUser={props.setUser} />
       <div className="content">{props.children}</div>
-      <footer>Le footer</footer>
+      <Footer />
     </div>
   );
 };
