@@ -197,7 +197,7 @@ a.link-header {
 }
 
 .signup-left {
-  margin-top: -400px;
+  margin-top: -480px;
   width: 40%;
 }
 
@@ -802,7 +802,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 80vh;
+  min-height: 85vh;
 }
 .all-conatain-UploadFiles > h1 {
   color: #212b36;
@@ -821,6 +821,9 @@ h4 {
 }
 
 .auto-elcole {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 30px;
   width: 40%;
   background-color: #ffffff;
@@ -833,11 +836,11 @@ h4 {
   margin-top: 100px;
   display: flex;
 }
-.auto-elcole > div > input {
+.auto-elcole input {
   cursor: pointer;
   background-color: #eaf0f7;
   border-radius: 25px;
-  margin: auto;
+  margin-top: -80px;
   height: 54px;
   color: #97a4ba;
   font-family: ArialRoundedMTBold;
@@ -848,7 +851,49 @@ h4 {
   padding-left: 20px;
   text-align: left;
 }
+.input-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-cp {
+  background-color: #6f7f8c;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  width: 280.34px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 50px;
+}
+.rendu-cp {
+  display: flex;
+  flex-direction: column;
 
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 80%;
+  margin-left: 100px;
+
+  height: 228px;
+
+  overflow: scroll;
+}
+
+.auto-ecole-axios {
+  height: 25px;
+  cursor: pointer;
+}
+.auto-ecole-axios p {
+  text-align: left !important;
+  font-size: 21.5px;
+  font-weight: 400;
+
+  /* font-family: Helvetica, sans-serif, Geneva, Tahoma, sans-serif; */
+}
 .auto-elcole > h2,
 .upload-docs > h2 {
   color: #212b36;
@@ -935,11 +980,10 @@ h4 {
   font-family: ArialRoundedMTBold;
   font-size: 18px;
   font-weight: 400;
-  width: 500.24px;
+  margin-bottom: 40px;
   text-align: center;
   background-color: #02b79a;
   border-radius: 10px;
-  width: 554px;
+  width: 480px;
   height: 65px;
 }
-

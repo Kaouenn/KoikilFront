@@ -4,12 +4,14 @@ import MainLayout from "./MainLayout";
 import axios from "axios";
 class UploadFiles extends React.Component {
   state = {
-    files: []
+    inputValue: "",
+    files: [],
+    cp: [],
+    isLoading: true
   };
   sendFiles = () => {
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
-    console.log("2", this.state.files);
     for (let i = 0; i < this.state.files.length; i++) {
       // on ajoute un fichier au FormData
       filesFormdata.append(`file${i}`, this.state.files[i]);
@@ -20,15 +22,35 @@ class UploadFiles extends React.Component {
         "content-type": "multipart/form-data"
       }
     };
-    console.log(filesFormdata);
     axios.post("https://koikil.herokuapp.com/upload", filesFormdata, config);
   };
+  //ici on copie les éléments pour pouvoir modifier
   handleChange = event => {
     const files = event.target.files;
-    this.setState({ files: [...this.state.files, ...files] }, () => {
-      console.log("1", this.state.files);
-    });
+
+    this.setState({ files: [...this.state.files, ...files] }, () => {});
   };
+
+  renderCP = () => {
+    if (this.state.isLoading === true) {
+      return <p>En cours de chargement ...</p>;
+    } else {
+      return (
+        <div className="rendu-cp">
+          {this.state.cp.map(autoecole => (
+            <div
+              key={autoecole._id}
+              className="auto-ecole-axios"
+              onClick={() => {}}
+            >
+              <p>{autoecole.Adresse}</p>
+            </div>
+          ))}
+        </div>
+      );
+    }
+  };
+
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
@@ -41,7 +63,27 @@ class UploadFiles extends React.Component {
               <h2>Je sélectionne l'auto-ecole où je suis inscrit</h2>
               <div>
                 {/* RECHERCHE auto-ecole */}
-                <input placeholder="nom de l'auto-ecole, adresse" />
+                <div className="input-button">
+                  <input
+                    placeholder="Entrez le code postal de votre auto-école"
+                    value={this.state.inputValue}
+                    onChange={event => {
+                      this.setState({
+                        inputValue: event.target.value
+                      });
+                    }}
+                  />
+                  <button
+                    className="button-cp"
+                    onClick={() => {
+                      this.componentDidMount();
+                    }}
+                  >
+                    Rechercher mon auto-ecole
+                  </button>
+
+                  {this.renderCP()}
+                </div>
               </div>
             </div>
             <div className="upload-docs">
@@ -50,7 +92,7 @@ class UploadFiles extends React.Component {
               <div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au permis B entre l’auto-école et vous
+                    Contrat de formation au pemis B entre l’auto-école et vous
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -60,17 +102,16 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
-                      // multiple
+                      multiple
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <div className="input-line">
                   <h3>
-                    Livret d'apprentissage indiquant les heures de conduite
-                    réalisées
+                    Contrat de formation au pemis B entre l’auto-école et vous
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -80,17 +121,16 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
-                      // multiple
+                      multiple
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 <div className="input-line">
                   <h3>
-                    Pièce d'identité du futur assuré préparant l'examen du
-                    permis
+                    Contrat de formation au pemis B entre l’auto-école et vous
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
@@ -100,9 +140,9 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
-                      // multiple
+                      multiple
                       onChange={this.handleChange}
                     />
                   </div>
@@ -118,5 +158,15 @@ class UploadFiles extends React.Component {
       </MainLayout>
     );
   };
+  componentDidMount = async () => {
+    const response = await axios.get(
+      "https://koikil.herokuapp.com/CP?cp=" + this.state.inputValue
+    );
+    this.setState({
+      cp: response.data,
+      isLoading: false
+    });
+  };
 }
+
 export default UploadFiles;

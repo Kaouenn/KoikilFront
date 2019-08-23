@@ -45,6 +45,7 @@ class LoginPage extends React.Component {
                     }
                   );
                   console.log(response.data);
+
                   this.props.setUser(response.data);
                 } catch (error) {
                   console.log(error.message);
@@ -104,7 +105,10 @@ class LoginPage extends React.Component {
                       </button>
                     </div>
 
-                    <h4 className="forgot-password">
+                    <h4
+                      className="forgot-password"
+                      style={{ marginLeft: "80px" }}
+                    >
                       J'ai oublié le mot de passe ?
                     </h4>
                   </form>
