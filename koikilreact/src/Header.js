@@ -52,7 +52,9 @@ class Header extends React.Component {
               </Link>
             </div>
             <div className="loged">
+
               <h2 className="loged-name"> Hello {this.props.user.name}</h2>
+
 
               <div>
                 <h2

@@ -7,7 +7,7 @@ import Home from "./Home";
 import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./UploadFiles";
-
+import UploadContract from "./UploadContract";
 
 class App extends React.Component {
   state = {
@@ -69,6 +69,8 @@ class App extends React.Component {
           />
 
           <Route path="/upload" render={() => <UploadFiles />} />
+
+          <Route path="/contrat" render={() => <UploadContract />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
