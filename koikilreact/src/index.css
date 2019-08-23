@@ -932,3 +932,19 @@ h4 {
   height: 65px;
 }
 
+.contrat--download {
+  font-size: 21px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 25px;
+  width: 322px;
+  text-align: justify;
+  background-color: #ffb000;
+  font-family: Helvetica;
+  border-radius: 10px;
+  height: 65px;
+  padding: 5px 20px;
+}

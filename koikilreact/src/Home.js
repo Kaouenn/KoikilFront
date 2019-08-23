@@ -170,7 +170,6 @@ class Home extends React.Component {
             Découvrir Assure ton Permis !
           </Link>
         </div>
-
       </MainLayout>
     );
   };
