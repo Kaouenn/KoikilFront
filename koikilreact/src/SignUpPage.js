@@ -29,7 +29,7 @@ class SignUpPage extends React.Component {
     // on récupère la value, si c'est un input de type `checkbox` on utilise event.target.checked au lieu de event.target.value
     const value =
       type === "checkbox" ? event.target.checked : event.target.value;
-    // pour savaoir quel input a été changé on regarde event.target.name (propriété "name" passé a l'input <input name="password" />)
+    // pour savoir quel input a été changé on regarde event.target.name (propriété "name" passé a l'input <input name="password" />)
     this.setState({ [event.target.name]: value });
   };
 
@@ -81,7 +81,7 @@ class SignUpPage extends React.Component {
           <div className="signup-left">
             <h1 className="title-signup">
               Inscrivez-vous pour <br />
-              <span>bénéficiez des produits Koikil</span>
+              <span>bénéficier des produits Koikil</span>
             </h1>
           </div>
           <div className="signup-right">
