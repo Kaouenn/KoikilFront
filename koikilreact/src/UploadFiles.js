@@ -4,7 +4,9 @@ import MainLayout from "./MainLayout";
 import axios from "axios";
 class UploadFiles extends React.Component {
   state = {
-    files: []
+    files: [],
+    cp: [],
+    isLoading: true
   };
   sendFiles = () => {
     // on crée un nouveau FormData
@@ -23,8 +25,24 @@ class UploadFiles extends React.Component {
   };
   handleChange = event => {
     const files = event.target.files;
-    this.setState({ files });
+
+    this.setState({ files: [...this.state.files, ...files] }, () => {});
   };
+
+  renderCP = () => {
+    if (this.state.isLoading === true) {
+      return <p>En cours de chargement ...</p>;
+    } else {
+      return (
+        <ul>
+          {this.state.cp.map(room => (
+            <li key={room._id}>{room.title}</li>
+          ))}
+        </ul>
+      );
+    }
+  };
+
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
@@ -36,8 +54,9 @@ class UploadFiles extends React.Component {
             <div className="auto-elcole">
               <h2>Je sélectionne l'auto-ecole où je suis inscrit</h2>
               <div>
+                <div> {this.renderCP()}</div>
                 {/* RECHERCHE auto-ecole */}
-                <input placeholder="nom de l'auto-ecole, adresse" />
+                <input placeholder="Nom de l’Auto-Ecole, adresse …" />
               </div>
             </div>
             <div className="upload-docs">
@@ -56,7 +75,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -75,7 +94,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -94,7 +113,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -112,5 +131,13 @@ class UploadFiles extends React.Component {
       </MainLayout>
     );
   };
+  componentDidMount = async () => {
+    const response = await axios.get("https://koikil.herokuapp.com/CP");
+    this.setState({
+      rooms: response.data,
+      isLoading: false
+    });
+  };
 }
+
 export default UploadFiles;

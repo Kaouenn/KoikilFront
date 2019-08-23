@@ -15,7 +15,7 @@ class LoginPage extends React.Component {
           <div className="login-form-bloc1">
             <h1 className="title-signup">
               Connectez-vous pour <br />
-              <span>bénéficiez des produits Koikil</span>
+              <span>bénéficier des produits Koikil</span>
             </h1>
           </div>
           <div className="login-form-bloc2">

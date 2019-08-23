@@ -12,6 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+input {
+  border-style: none;
+  outline: none;
+}
+button {
+  outline: none;
+}
 
 h1 {
   margin: 0 25px 0 0;
@@ -61,7 +68,7 @@ nav > div:nth-child(1) > div:nth-child(2) {
   justify-content: flex-start;
 }
 .groupe1-header-loged {
-  margin-left: -500px;
+  margin-left: -400px;
 }
 .groupe2-header {
   width: 40%;
@@ -145,10 +152,10 @@ a.link-header {
   text-align: left;
 }
 .loged {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   display: flex;
-  width: 19.5%;
+  width: 21%;
 }
 .loged-name {
   color: #424b5f;
@@ -156,7 +163,6 @@ a.link-header {
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
-  width: 69px;
   text-align: center;
 }
 .deconnexion {
@@ -436,7 +442,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 70vh;
+  min-height: 80vh;
 }
 .all-conatain-UploadFiles > h1 {
   color: #212b36;
@@ -463,6 +469,10 @@ form {
   box-shadow: 0 6px 8px 0 rgba(164, 164, 164, 0.21);
   height: 390px;
 }
+.auto-elcole > div {
+  margin-top: 100px;
+  display: flex;
+}
 .auto-elcole > div > input {
   cursor: pointer;
   background-color: #eaf0f7;
@@ -474,7 +484,8 @@ form {
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
-  width: 355.95px;
+  width: 439.56px;
+  padding-left: 20px;
   text-align: left;
 }
 
