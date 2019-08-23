@@ -5,7 +5,7 @@ class Header extends React.Component {
   render = () => {
     return (
       <header>
-        {this.props.user === null ? (
+        {this.props.user === null || this.props.user === undefined ? (
           <nav>
             <div className="logo">
               <h1>
@@ -37,13 +37,13 @@ class Header extends React.Component {
           <nav>
             <div className="logo">
               <h1>
-                <Link className="link-logo" to="/">
+                <Link className="link-logo" to="/loged1">
                   Koikil
                 </Link>
               </h1>
             </div>
             <div className="groupe1-header-loged">
-              <Link className="link-header" to="/">
+              <Link className="link-header" to="/loged1">
                 Accueil
               </Link>
 
@@ -52,7 +52,7 @@ class Header extends React.Component {
               </Link>
             </div>
             <div className="loged">
-              <h2 className="loged-name">Hello {this.props.user.name}</h2>
+              <h2 className="loged-name"> Hello {this.props.user.name}</h2>
 
               <div>
                 <h2
