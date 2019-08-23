@@ -4,7 +4,10 @@ import MainLayout from "./MainLayout";
 import axios from "axios";
 class UploadFiles extends React.Component {
   state = {
-    files: []
+    inputValue: "",
+    files: [],
+    cp: [],
+    isLoading: true
   };
   sendFiles = () => {
     // on crée un nouveau FormData
@@ -21,10 +24,33 @@ class UploadFiles extends React.Component {
     };
     axios.post("https://koikil.herokuapp.com/upload", filesFormdata, config);
   };
+  //ici on copie les éléments pour pouvoir modifier
   handleChange = event => {
     const files = event.target.files;
-    this.setState({ files });
+
+    this.setState({ files: [...this.state.files, ...files] }, () => {});
   };
+
+  renderCP = () => {
+    if (this.state.isLoading === true) {
+      return <p>En cours de chargement ...</p>;
+    } else {
+      return (
+        <div className="rendu-cp">
+          {this.state.cp.map(autoecole => (
+            <div
+              key={autoecole._id}
+              className="auto-ecole-axios"
+              onClick={() => {}}
+            >
+              <p>{autoecole.Adresse}</p>
+            </div>
+          ))}
+        </div>
+      );
+    }
+  };
+
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
@@ -37,7 +63,27 @@ class UploadFiles extends React.Component {
               <h2>Je sélectionne l'auto-ecole où je suis inscrit</h2>
               <div>
                 {/* RECHERCHE auto-ecole */}
-                <input placeholder="nom de l'auto-ecole, adresse" />
+                <div className="input-button">
+                  <input
+                    placeholder="Entrez le code postal de votre auto-école"
+                    value={this.state.inputValue}
+                    onChange={event => {
+                      this.setState({
+                        inputValue: event.target.value
+                      });
+                    }}
+                  />
+                  <button
+                    className="button-cp"
+                    onClick={() => {
+                      this.componentDidMount();
+                    }}
+                  >
+                    Rechercher mon auto-ecole
+                  </button>
+
+                  {this.renderCP()}
+                </div>
               </div>
             </div>
             <div className="upload-docs">
@@ -56,7 +102,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -75,7 +121,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -94,7 +140,7 @@ class UploadFiles extends React.Component {
                     </div>
                     <input
                       id="file"
-                      class="input-file"
+                      className="input-file"
                       type="file"
                       multiple
                       onChange={this.handleChange}
@@ -112,5 +158,15 @@ class UploadFiles extends React.Component {
       </MainLayout>
     );
   };
+  componentDidMount = async () => {
+    const response = await axios.get(
+      "https://koikil.herokuapp.com/CP?cp=" + this.state.inputValue
+    );
+    this.setState({
+      cp: response.data,
+      isLoading: false
+    });
+  };
 }
+
 export default UploadFiles;

@@ -15,7 +15,7 @@ class LoginPage extends React.Component {
           <div className="login-form-bloc1">
             <h1 className="title-signup">
               Connectez-vous pour <br />
-              <span>bénéficiez des produits Koikil</span>
+              <span>bénéficier des produits Koikil</span>
             </h1>
           </div>
           <div className="login-form-bloc2">
@@ -104,7 +104,10 @@ class LoginPage extends React.Component {
                       </button>
                     </div>
 
-                    <h4 className="forgot-password">
+                    <h4
+                      className="forgot-password"
+                      style={{ marginLeft: "80px" }}
+                    >
                       J'ai oublié le mot de passe ?
                     </h4>
                   </form>

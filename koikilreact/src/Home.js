@@ -3,7 +3,7 @@ import MainLayout from "./MainLayout";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookOpen,
@@ -17,7 +17,7 @@ class Home extends React.Component {
     // console.log(query);
 
     return (
-      <MainLayout>
+      <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="titlehomepage">
           <div className="titlehomepagesub">
             <h1>
