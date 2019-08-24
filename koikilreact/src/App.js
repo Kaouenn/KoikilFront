@@ -70,7 +70,7 @@ class App extends React.Component {
 
           <Route path="/upload" render={() => <UploadFiles />} />
 
-          <Route path="/contrat" render={() => <UploadContract />} />
+          <Route path="/contract" render={() => <UploadContract />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>

@@ -7,7 +7,11 @@ class UploadFiles extends React.Component {
     inputValue: "",
     files: [],
     cp: [],
-    isLoading: true
+    isLoading: true,
+    UserAutoecole: "",
+    pic1: false,
+    pic2: false,
+    pic3: false
   };
   sendFiles = () => {
     // on crée un nouveau FormData
@@ -28,29 +32,96 @@ class UploadFiles extends React.Component {
   handleChange = event => {
     const files = event.target.files;
 
-    this.setState({ files: [...this.state.files, ...files] }, () => {});
+    this.setState({ files: [...this.state.files, ...files] });
+    console.log(files);
   };
 
-  renderCP = () => {
-    if (this.state.isLoading === true) {
-      return <p>En cours de chargement ...</p>;
-    } else {
+  uploadCheck = () => {
+    if (this.state.files.length === 0) {
       return (
-        <div className="rendu-cp">
-          {this.state.cp.map(autoecole => (
-            <div
-              key={autoecole._id}
-              className="auto-ecole-axios"
-              onClick={() => {}}
-            >
-              <p>{autoecole.Adresse}</p>
-            </div>
-          ))}
+        <div className="emoticon-upload">
+          <p>0 images importées 🙁 </p>
+        </div>
+      );
+    } else if (this.state.files.length === 1) {
+      return (
+        <div className="emoticon-upload">
+          <p>1 image importée 🙂 </p>
+        </div>
+      );
+    } else if (this.state.files.length === 2) {
+      return (
+        <div className="emoticon-upload">
+          <p>2 images importées 😊</p>
+        </div>
+      );
+    } else if (this.state.files.length === 3) {
+      return (
+        <div className="emoticon-upload">
+          <p>3 images importées 😀 </p>
         </div>
       );
     }
   };
+  // uploadCheck = () => {
+  //   if (this.state.files.length === 0) {
+  //     return (
+  //       <div className="emoticon-upload">
+  //         <p>0 images importées 🙁 </p>
+  //       </div>
+  //     );
+  //   } else if (this.state.files.length === 1) {
+  //     return (
+  //       <div className="emoticon-upload">
+  //         <p>✓</p>
+  //       </div>
+  //     );
+  //   } else if (this.state.files.length === 2) {
+  //     this.setState({ pic2: true });
+  //     return (
+  //       <div className="emoticon-upload">
+  //         <p>✓</p>
+  //       </div>
+  //     );
+  //   } else if (this.state.files.length === 3) {
+  //     this.setState({ pic3: true });
+  //     return (
+  //       <div className="emoticon-upload">
+  //         <p>✓</p>
+  //       </div>
+  //     );
+  //   }
+  // };
 
+  renderCP = () => {
+    return (
+      <div className="rendu-cp">
+        {this.state.cp.map(autoecole => (
+          <div key={autoecole._id} className="auto-ecole-axios">
+            <p
+              onClick={() => {
+                this.setState({ UserAutoecole: autoecole._id });
+                this.sendAutoEcoleToDatabase();
+              }}
+            >
+              {autoecole.Adresse}
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  sendAutoEcoleToDatabase = async () => {
+    // e.preventDefault();
+    try {
+      await axios.post("https://koikil.herokuapp.com/updateUser", {
+        autoecole: this.state.UserAutoecole
+      });
+    } catch (e) {
+      console.log(this.state.UserAutoecole);
+      console.log("error type ====>", e.message);
+    }
+  };
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
@@ -96,7 +167,7 @@ class UploadFiles extends React.Component {
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" class="label-file">
+                      <label for="file" className="label-file">
                         +
                       </label>
                     </div>
@@ -111,11 +182,12 @@ class UploadFiles extends React.Component {
                 </div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Livret d’apprentissage indiquant les heures de conduite
+                    réalisées
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" class="label-file">
+                      <label for="file" className="label-file">
                         +
                       </label>
                     </div>
@@ -130,11 +202,12 @@ class UploadFiles extends React.Component {
                 </div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Pièce d’identité du futur assuré préparant l’examen du
+                    permis
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" class="label-file">
+                      <label for="file" className="label-file">
                         +
                       </label>
                     </div>
@@ -148,6 +221,7 @@ class UploadFiles extends React.Component {
                   </div>
                 </div>
               </div>
+              {this.uploadCheck()}
             </div>
           </div>
           {/* bouton avec la fonction sendFiles */}
