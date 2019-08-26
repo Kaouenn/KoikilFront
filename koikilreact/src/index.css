@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
+  overflow-y: scroll;
 }
 
 code {
@@ -877,12 +878,11 @@ h4 {
   width: 80%;
   margin-left: 100px;
   height: 228px;
-  overflow: scroll;
+  overflow-y: auto; /* showing scrollbars */
 }
 
 .auto-ecole-axios {
   margin: 5px 0;
-
   height: 30px;
   display: flex;
   flex-direction: column;

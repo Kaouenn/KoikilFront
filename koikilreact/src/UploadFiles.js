@@ -40,25 +40,45 @@ class UploadFiles extends React.Component {
     if (this.state.files.length === 0) {
       return (
         <div className="emoticon-upload">
-          <p>0 images importées 🙁 </p>
+          <p>
+            0 images importées{" "}
+            <span role="img" aria-label="0">
+              🙁
+            </span>
+          </p>
         </div>
       );
     } else if (this.state.files.length === 1) {
       return (
         <div className="emoticon-upload">
-          <p>1 image importée 🙂 </p>
+          <p>
+            1 image importée{" "}
+            <span role="img" aria-label="1 image">
+              🙂
+            </span>
+          </p>
         </div>
       );
     } else if (this.state.files.length === 2) {
       return (
         <div className="emoticon-upload">
-          <p>2 images importées 😊</p>
+          <p>
+            2 images importées{" "}
+            <span role="img" aria-label="2 images">
+              😊
+            </span>
+          </p>
         </div>
       );
     } else if (this.state.files.length === 3) {
       return (
         <div className="emoticon-upload">
-          <p>3 images importées 😀 </p>
+          <p>
+            3 images importées{" "}
+            <span role="img" aria-label="3 images">
+              😀
+            </span>
+          </p>
         </div>
       );
     }
@@ -115,8 +135,10 @@ class UploadFiles extends React.Component {
     // e.preventDefault();
     try {
       await axios.post("https://koikil.herokuapp.com/updateUser", {
+        email: this.props.user.email,
         autoecole: this.state.UserAutoecole
       });
+      console.log(this.state.UserAutoecole);
     } catch (e) {
       console.log(this.state.UserAutoecole);
       console.log("error type ====>", e.message);
@@ -167,7 +189,7 @@ class UploadFiles extends React.Component {
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" className="label-file">
+                      <label htmlFor="file" className="label-file">
                         +
                       </label>
                     </div>
@@ -187,7 +209,7 @@ class UploadFiles extends React.Component {
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" className="label-file">
+                      <label htmlFor="file" className="label-file">
                         +
                       </label>
                     </div>
@@ -207,7 +229,7 @@ class UploadFiles extends React.Component {
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
-                      <label for="file" className="label-file">
+                      <label htmlFor="file" className="label-file">
                         +
                       </label>
                     </div>
