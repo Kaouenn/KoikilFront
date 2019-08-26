@@ -990,7 +990,92 @@ h4 {
 .input-file {
   display: none;
 }
-
+/* -------------page contrat------------ */
+.contrat--container {
+  display: flex;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.contrat--left {
+  padding-right: 80px;
+}
+.contrat--left > h1 {
+  color: #02b79a;
+  font-family: Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  width: 442px;
+  text-align: justify;
+}
+.contrat--left > p {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 40px;
+  width: 482px;
+  display: block;
+  margin-block-start: 2.4em;
+  margin-block-end: 1em;
+  text-align: justify;
+}
+.contrat--right {
+  padding: 0 30px;
+  height: 450px;
+  border-left: 1px solid #979797;
+  border-right: 1px solid #979797;
+}
+.contrat--right > h2 {
+  color: #212b36;
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 34px;
+  width: 389px;
+  text-align: left;
+}
+/* .contrat--right > h2 ::after {
+  border-bottom: 1px solid #979797;
+  opacity: 0.346748;
+  margin-bottom: 30px;
+} */
+.contrat--right > h3 {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 29px;
+  width: 436px;
+  text-align: left;
+}
+.contrat--right > span {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+}
+/* label en mode bouton orange sur l'input */
+.contrat--download {
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: Helvetica;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 25px;
+  width: 322px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffb000;
+  font-family: Helvetica;
+  border-radius: 10px;
+  height: 65px;
+  padding: 5px 20px;
+}
 .button-go-contrat {
   cursor: pointer;
   color: #ffffff;
@@ -1005,19 +1090,3 @@ h4 {
   height: 65px;
 }
 
-.contrat--download {
-  font-size: 21px;
-  font-weight: 400;
-  color: #ffffff;
-  font-family: Helvetica;
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 25px;
-  width: 322px;
-  text-align: justify;
-  background-color: #ffb000;
-  font-family: Helvetica;
-  border-radius: 10px;
-  height: 65px;
-  padding: 5px 20px;
-}
