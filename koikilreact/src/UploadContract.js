@@ -42,36 +42,31 @@ class UploadContract extends React.Component {
           {/* CART CONTRAT--RIGHT TELECHARGEMENT CONTRAT */}
           <div className="contrat--right">
             <h2>Le contrat</h2>
-
-            <div>
-              <h3>
-                L'engagement entre Koikil et vous pour <br />
-                <span>Assure ton Permis !</span>
-              </h3>
-
-              <div className="input-image">
-                <div className="input-design">
-                  <label for="file" className="contrat--download">
-                    Lire puis signer en ligne le contrat
-                  </label>
-                </div>
-                <input
-                  id="file"
-                  className="input-file"
-                  type="file"
-                  name="contrat"
-                  onChange={this.handleChange}
-                />
-                {/* bouton avec la fonction sendFiles */}
-                <button className="button-go-contrat" onClick={this.sendFiles}>
-                  UPLOAD CONTRAT
-                </button>
-                {/* bouton avec la fonction sendFiles */}
-                <button className="button-go-contrat">
-                  PROCEDER AU PAIEMENT
-                </button>
+            <h3>
+              L'engagement entre Koikil et vous pour <br />
+              <span>Assure ton Permis !</span>
+            </h3>
+            <div className="input-image">
+              <div className="input-design">
+                <label for="file" className="contrat--download">
+                  Lire puis signer en ligne le contrat
+                </label>
               </div>
+              <input
+                id="file"
+                className="input-file"
+                type="file"
+                name="contrat"
+                onChange={this.handleChange}
+              />
+              {/* bouton avec la fonction sendFiles */}
+              <button className="button-go-contrat" onClick={this.sendFiles}>
+                UPLOAD CONTRAT
+              </button>
             </div>
+            <div className="trait" />
+            {/* LINK PAGE DE PAIEMENT */}
+            <button className="button-go-contrat">Procéder au paiement</button>
           </div>
         </div>
       </MainLayout>

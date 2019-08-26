@@ -1024,8 +1024,8 @@ h4 {
 .contrat--right {
   padding: 0 30px;
   height: 450px;
-  border-left: 1px solid #979797;
-  border-right: 1px solid #979797;
+  border-left: 1px solid rgb(213, 212, 212);
+  border-right: 1px solid rgb(213, 212, 212);
 }
 .contrat--right > h2 {
   color: #212b36;
@@ -1033,27 +1033,28 @@ h4 {
   font-size: 28px;
   font-weight: 400;
   line-height: 34px;
-  width: 389px;
   text-align: left;
 }
-/* .contrat--right > h2 ::after {
-  border-bottom: 1px solid #979797;
-  opacity: 0.346748;
-  margin-bottom: 30px;
-} */
-.contrat--right > h3 {
-  color: #424b5f;
-  font-family: Helvetica;
-  font-size: 100px;
-  font-weight: 400;
-  line-height: 29px;
-  width: 436px;
-  text-align: left;
+.contrat--right h2::after {
+  border-bottom: 1px solid rgb(213, 212, 212);
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
-.contrat--right > span {
+.contrat--right h3 {
   color: #424b5f;
   font-family: Helvetica;
   font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  text-align: left;
+}
+.contrat--right span {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 29px;
   font-weight: 600;
   line-height: 29px;
 }
@@ -1086,9 +1087,15 @@ h4 {
   text-align: center;
   background-color: #02b79a;
   border-radius: 10px;
-  width: 480px;
+  width: 363px;
   height: 65px;
 }
+
+.trait {
+  border-bottom: 1px solid rgb(213, 212, 212);
+  content: "";
+  display: block;
+  margin-bottom: 20px;
 
 /* ////////////////refund//////////////////// */
 
