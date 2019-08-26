@@ -8,6 +8,7 @@ import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./UploadFiles";
 import UploadContract from "./UploadContract";
+import RefuntDrivingSchool from "./RefundDrivingSchool";
 
 class App extends React.Component {
   state = {
@@ -66,6 +67,10 @@ class App extends React.Component {
           <Route
             path="/loged1"
             render={() => <UploadFiles {...pageCommonProps} />}
+          />
+          <Route
+            path="/remboursement"
+            render={() => <RefuntDrivingSchool {...pageCommonProps} />}
           />
 
           <Route path="/upload" render={() => <UploadFiles />} />
