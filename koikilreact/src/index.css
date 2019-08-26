@@ -1005,3 +1005,102 @@ h4 {
   padding: 5px 20px;
 }
 
+/* ////////////////refund//////////////////// */
+
+.all-conatain-refund {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 85vh;
+}
+.all-conatain-refund h1 {
+  color: #212b36;
+  font-family: Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 43px;
+  width: 537px;
+  text-align: center;
+}
+.upload-refund {
+  background-color: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 6px 8px 0 rgba(164, 164, 164, 0.21);
+  width: 964.4px;
+  height: 64px;
+  margin-top: 100px;
+}
+
+.upload-refund h2 {
+  background-color: #ffffff;
+  color: #212b36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Card-refund {
+  background-color: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 6px 8px 0 rgba(164, 164, 164, 0.21);
+  width: 962.86px;
+  height: 218px;
+}
+.input-refund {
+  display: flex;
+
+  align-items: center !important;
+  width: 90%;
+  color: #424b5f;
+  margin: auto;
+  justify-content: space-between;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-top: 20px;
+
+  text-align: justify;
+}
+.label-refund {
+  cursor: pointer;
+  color: black;
+
+  font-weight: 500;
+  padding: 4px 14px;
+  margin: auto;
+
+  font-size: 35px;
+  border-radius: 50%;
+  background: white;
+  border: 5px solid #6f7f8c;
+}
+.button-go-refund {
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ArialRoundedMTBold;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  background-color: #02b79a;
+  border-radius: 20px;
+  width: 480px;
+  height: 85px;
+  margin-top: 300px;
+}
+.pararefund {
+  color: #424b5f;
+  font-family: Helvetica;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 28px;
+  width: 660px;
+  text-align: justify;
+}
