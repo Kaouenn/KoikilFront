@@ -2,12 +2,14 @@
 import React from "react";
 import MainLayout from "./MainLayout";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class UploadContract extends React.Component {
   state = {
-    files: []
+    files: [],
+    contractUrl: ""
   };
-  sendFiles = () => {
+  sendFiles = async () => {
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
 
@@ -22,7 +24,12 @@ class UploadContract extends React.Component {
       }
     };
     console.log(filesFormdata);
-    axios.post("https://koikil.herokuapp.com/contract", filesFormdata, config);
+    const response = await axios.post(
+      "https://koikil.herokuapp.com/contract",
+      filesFormdata,
+      config
+    );
+    this.setState({ contractUrl: response.data.file0.result.secure_url });
   };
   handleChange = event => {
     const files = event.target.files;
@@ -71,10 +78,19 @@ class UploadContract extends React.Component {
                 </div>
               </div>
 
+              <button className="contrat--download" onClick={this.sendFiles}>
+                Envoyer le contrat signé
+              </button>
               <div className="trait" />
+              <button className="contrat--download">
+                <a href={this.state.contractUrl}>Voir le contrat</a>
+              </button>
+
+              <div className="trait" />
+
               {/* LINK PAGE DE PAIEMENT */}
-              <button className="button-go-contrat" onClick={this.sendFiles}>
-                Procéder au paiement
+              <button className="button-go-contrat">
+                <Link to="/paiement">Procéder au paiement</Link>
               </button>
             </div>
           </div>
