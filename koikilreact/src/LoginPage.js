@@ -26,11 +26,11 @@ class LoginPage extends React.Component {
               validate={values => {
                 let errors = {};
                 if (!values.email) {
-                  errors.email = "Required";
+                  errors.email = "Vous devez renseigner votre adresse email";
                 } else if (
                   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
-                  errors.email = "Invalid email address";
+                  errors.email = "Adresse email invalide";
                 }
                 return errors;
               }}
@@ -66,23 +66,25 @@ class LoginPage extends React.Component {
                       className="input-div-form"
                       style={{ marginBottom: "-30px" }}
                     >
-                      <input
-                        className="input-signup"
-                        type="text"
-                        placeholder="Email"
-                        // les valeurs sont dans formikBag.values
-                        value={formikBag.values.email}
-                        // le formikBag.handleChange est similaire au handleInputChange du SignUpPage
-                        onChange={formikBag.handleChange}
-                        // on passe également formikBag.handleBlur pour que formik puisse savoir quand un champ est déselectionné
-                        onBlur={formikBag.handleBlur}
-                        name="email"
-                        autoComplete="on"
-                      />
-                      {/* Si le champ a une erreur et qu'il a été modifié (touched) on affiche l'erreur */}
-                      {formikBag.touched.email && formikBag.errors.email && (
-                        <p>{formikBag.errors.email}</p>
-                      )}
+                      <div className="input-email-required">
+                        <input
+                          className="input-signup"
+                          type="text"
+                          placeholder="Email"
+                          // les valeurs sont dans formikBag.values
+                          value={formikBag.values.email}
+                          // le formikBag.handleChange est similaire au handleInputChange du SignUpPage
+                          onChange={formikBag.handleChange}
+                          // on passe également formikBag.handleBlur pour que formik puisse savoir quand un champ est déselectionné
+                          onBlur={formikBag.handleBlur}
+                          name="email"
+                          autoComplete="on"
+                        />
+                        {/* Si le champ a une erreur et qu'il a été modifié (touched) on affiche l'erreur */}
+                        {formikBag.touched.email && formikBag.errors.email && (
+                          <p className="required">{formikBag.errors.email}</p>
+                        )}
+                      </div>
                     </div>
                     <div className="input-div-form">
                       <input
