@@ -1035,15 +1035,15 @@ h4 {
 .input-file {
   display: none;
 }
-/* -------------page contrat------------ */
+/* -------------page /contract------------ */
 .contrat--container {
   display: flex;
-  max-width: 1024px;
+  max-width: 1030px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 .contrat--left {
-  padding-right: 80px;
+  padding-right: 70px;
 }
 .contrat--left > h1 {
   color: #02b79a;
@@ -1067,8 +1067,8 @@ h4 {
   text-align: justify;
 }
 .contrat--right {
+  width: 120%;
   padding: 0 30px;
-  height: 450px;
   border-left: 1px solid rgb(213, 212, 212);
   border-right: 1px solid rgb(213, 212, 212);
 }
@@ -1101,10 +1101,14 @@ h4 {
   font-family: Helvetica;
   font-size: 29px;
   font-weight: 600;
-  line-height: 29px;
+  line-height: 35px;
 }
-/* label en mode bouton orange sur l'input */
-.contrat--download {
+/* balise a dans un bouton*/
+.contrat--download a {
+  color: inherit;
+  text-decoration: none;
+}
+button.contrat--download {
   cursor: pointer;
   font-size: 21px;
   font-weight: 400;
@@ -1113,14 +1117,14 @@ h4 {
   font-size: 21px;
   font-weight: 400;
   line-height: 25px;
-  width: 322px;
   display: flex;
   justify-content: center;
   background-color: #ffb000;
   font-family: Helvetica;
   border-radius: 10px;
-  height: 65px;
-  padding: 5px 20px;
+  border: 1px solid #ffb000;
+  width: 403px;
+  height: 50px;
 }
 .button-go-contrat {
   cursor: pointer;
@@ -1128,19 +1132,26 @@ h4 {
   font-family: ArialRoundedMTBold;
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 40px;
   text-align: center;
   background-color: #02b79a;
+  border: 1px solid #02b79a;
   border-radius: 10px;
   width: 363px;
   height: 65px;
 }
 
 .trait {
-  border-bottom: 1px solid rgb(213, 212, 212);
+  border-bottom: 1px solid red;
   content: "";
   display: block;
+
   margin-bottom: 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ////////////////refund//////////////////// */
