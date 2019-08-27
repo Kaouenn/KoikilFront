@@ -68,7 +68,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ### npm i before running front-end
-
+Also install package as below
 npm i --save @fortawesome/fontawesome-svg-core
-$ npm i --save @fortawesome/free-solid-svg-icons
-$ npm i --save @fortawesome/react-fontawesome
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/react-fontawesome
+npm i react-stripe-elements
+npm i axios
