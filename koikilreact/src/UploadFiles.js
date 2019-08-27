@@ -9,6 +9,7 @@ class UploadFiles extends React.Component {
     cp: [],
     isLoading: true,
     UserAutoecole: "",
+    autoEcoleName: "",
     pic1: false,
     pic2: false,
     pic3: false
@@ -121,10 +122,14 @@ class UploadFiles extends React.Component {
             <p
               onClick={() => {
                 this.setState({ UserAutoecole: autoecole._id });
+                this.setState({
+                  autoEcoleName: autoecole["Raison Sociale"]
+                });
                 this.sendAutoEcoleToDatabase();
               }}
             >
-              {autoecole.Adresse}
+              {autoecole["Raison Sociale"]} :
+              <span className="name-auto-ecole"> {autoecole.Adresse}</span>
             </p>
           </div>
         ))}
@@ -159,7 +164,11 @@ class UploadFiles extends React.Component {
                 <div className="input-button">
                   <input
                     placeholder="Entrez le code postal de votre auto-école"
-                    value={this.state.inputValue}
+                    value={
+                      this.state.autoEcoleName.length !== 0
+                        ? `Votre auto-école: ${this.state.autoEcoleName}`
+                        : this.state.inputValue
+                    }
                     onChange={event => {
                       this.setState({
                         inputValue: event.target.value

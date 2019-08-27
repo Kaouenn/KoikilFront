@@ -8,6 +8,7 @@ import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./UploadFiles";
 import UploadContract from "./UploadContract";
+import Payement from "./Payement";
 
 class App extends React.Component {
   state = {
@@ -71,6 +72,7 @@ class App extends React.Component {
           <Route path="/upload" render={() => <UploadFiles />} />
 
           <Route path="/contract" render={() => <UploadContract />} />
+          <Route path="/paiement" render={() => <Payement />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
