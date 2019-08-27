@@ -46,7 +46,12 @@ class UploadContract extends React.Component {
               L'engagement entre Koikil et vous pour <br />
               <span>Assure ton Permis !</span>
             </h3>
-            <div className="input-image">
+            <button className="contrat--download">
+              <a href="/MonRécapGIT.pdf" download>
+                Lire le contrat
+              </a>
+            </button>
+            {/* <div className="input-image">
               <div className="input-design">
                 <label for="file" className="contrat--download">
                   Lire puis signer en ligne le contrat
@@ -59,11 +64,10 @@ class UploadContract extends React.Component {
                 name="contrat"
                 onChange={this.handleChange}
               />
-              {/* bouton avec la fonction sendFiles */}
               <button className="button-go-contrat" onClick={this.sendFiles}>
                 UPLOAD CONTRAT
               </button>
-            </div>
+            </div> */}
             <div className="trait" />
             {/* LINK PAGE DE PAIEMENT */}
             <button className="button-go-contrat">Procéder au paiement</button>
