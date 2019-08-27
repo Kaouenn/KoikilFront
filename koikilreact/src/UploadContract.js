@@ -46,27 +46,37 @@ class UploadContract extends React.Component {
               L'engagement entre Koikil et vous pour <br />
               <span>Assure ton Permis !</span>
             </h3>
-            <div className="input-image">
-              <div className="input-design">
-                <label for="file" className="contrat--download">
-                  Lire puis signer en ligne le contrat
-                </label>
+            <div className="center">
+              <button className="contrat--download">
+                <a href="/MonRécapGIT.pdf" download>
+                  Lire / télécharger le contrat
+                </a>
+              </button>
+
+              <div className="input-line">
+                <h3>Upload du contrat</h3>
+                <div className="input-image">
+                  <div className="input-design">
+                    <label htmlFor="file" className="label-file">
+                      +
+                    </label>
+                  </div>
+                  <input
+                    id="file"
+                    className="input-file"
+                    type="file"
+                    multiple
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
-              <input
-                id="file"
-                className="input-file"
-                type="file"
-                name="contrat"
-                onChange={this.handleChange}
-              />
-              {/* bouton avec la fonction sendFiles */}
+
+              <div className="trait" />
+              {/* LINK PAGE DE PAIEMENT */}
               <button className="button-go-contrat" onClick={this.sendFiles}>
-                UPLOAD CONTRAT
+                Procéder au paiement
               </button>
             </div>
-            <div className="trait" />
-            {/* LINK PAGE DE PAIEMENT */}
-            <button className="button-go-contrat">Procéder au paiement</button>
           </div>
         </div>
       </MainLayout>
