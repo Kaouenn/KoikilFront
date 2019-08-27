@@ -8,8 +8,10 @@ import AssureTonPermis from "./AssureTonPermis";
 import Cookies from "js-cookie";
 import UploadFiles from "./UploadFiles";
 import UploadContract from "./UploadContract";
+import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 import BackOfficeClient from "./BackOfficeClient";
+
 
 class App extends React.Component {
   state = {
@@ -80,7 +82,8 @@ class App extends React.Component {
 
           <Route path="/upload" render={() => <UploadFiles />} />
 
-          <Route path="/contrat" render={() => <UploadContract />} />
+          <Route path="/contract" render={() => <UploadContract />} />
+          <Route path="/paiement" render={() => <Payement />} />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
