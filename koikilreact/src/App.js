@@ -10,6 +10,7 @@ import UploadFiles from "./UploadFiles";
 import UploadContract from "./UploadContract";
 import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
+import BackOfficeClient from "./BackOfficeClient";
 
 
 class App extends React.Component {
@@ -73,6 +74,10 @@ class App extends React.Component {
           <Route
             path="/remboursement"
             render={() => <RefuntDrivingSchool {...pageCommonProps} />}
+          />
+          <Route
+            path="/mon-espace"
+            render={() => <BackOfficeClient {...pageCommonProps} />}
           />
 
           <Route path="/upload" render={() => <UploadFiles />} />
