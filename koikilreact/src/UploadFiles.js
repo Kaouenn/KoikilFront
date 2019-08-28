@@ -164,7 +164,7 @@ class UploadFiles extends React.Component {
           <div className="contain-auto-ecole-upload">
             {/* CART RECHERCHE AUTO-ECOLE */}
             <div className="auto-elcole">
-              <h2>Je sélectionne l'auto-ecole où je suis inscrit</h2>
+              <h2>Je sélectionne l'auto-école où je suis inscrit</h2>
               <div>
                 {/* RECHERCHE auto-ecole */}
                 <div className="input-button">
@@ -187,7 +187,7 @@ class UploadFiles extends React.Component {
                       this.componentDidMount();
                     }}
                   >
-                    Rechercher mon auto-ecole
+                    Rechercher mon auto-école
                   </button>
 
                   {this.renderCP()}
@@ -200,7 +200,7 @@ class UploadFiles extends React.Component {
               <div>
                 <div className="input-line">
                   <h3>
-                    Contrat de formation au pemis B entre l’auto-école et vous
+                    Contrat de formation au permis B entre l’auto-école et vous
                   </h3>
                   <div className="input-image">
                     <div className="input-design">
