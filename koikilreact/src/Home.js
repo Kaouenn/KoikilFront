@@ -42,14 +42,14 @@ class Home extends React.Component {
           </div>
         </div>
         <div className="cardItem">
-          <div className="CardSingle" style={{ backgroundColor: "yellow" }}>
+          <div className="CardSingle">
             <h3 className="cardTitle">Rapide</h3>
             <p>
               <span style={{ fontWeight: "bold" }}>Cinq minutes </span>
               pour s'assurer ou pour être remboursé.
             </p>
           </div>
-          <div className="CardSingle" style={{ backgroundColor: "purple" }}>
+          <div className="CardSingle">
             <h3 className="cardTitle">100% en ligne</h3>
             <p>
               Tout est fait{" "}
@@ -58,7 +58,7 @@ class Home extends React.Component {
               </span>
             </p>
           </div>
-          <div className="CardSingle" style={{ backgroundColor: "grey" }}>
+          <div className="CardSingle">
             <h3 className="cardTitle">Fiable</h3>
             <p>
               Notre contrat est concis, clair et complet :{" "}
