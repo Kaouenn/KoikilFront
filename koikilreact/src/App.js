@@ -11,7 +11,6 @@ import UploadContract from "./UploadContract";
 import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 
-
 class App extends React.Component {
   state = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null
@@ -74,8 +73,6 @@ class App extends React.Component {
             path="/remboursement"
             render={() => <RefuntDrivingSchool {...pageCommonProps} />}
           />
-
-          <Route path="/upload" render={() => <UploadFiles />} />
 
           <Route path="/contract" render={() => <UploadContract />} />
           <Route path="/paiement" render={() => <Payement />} />

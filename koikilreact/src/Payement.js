@@ -5,6 +5,9 @@ import { Elements, StripeProvider } from "react-stripe-elements";
 import CheckoutForm from "./CheckoutForm";
 
 class Payement extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>

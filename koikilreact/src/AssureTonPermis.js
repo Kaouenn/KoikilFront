@@ -5,6 +5,9 @@ import "./index.css";
 
 class AssureTonPermis extends React.Component {
   // Pas besoin de state ici, on utilise Formik !
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   render = () => {
     return (

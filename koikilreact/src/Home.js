@@ -12,6 +12,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class Home extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render = () => {
     // const query = queryString.parse(this.props.location.search);
     // console.log(query);
