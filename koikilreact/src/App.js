@@ -75,10 +75,15 @@ class App extends React.Component {
             path="/loged1"
             render={() => <UploadFiles {...pageCommonProps} />}
           />
+          {this.state.user === null && (
+            <Redirect from="/remboursement" to="/" />
+          )}
           <Route
             path="/remboursement"
             render={() => <RefuntDrivingSchool {...pageCommonProps} />}
           />
+          {this.state.user === null && <Redirect from="/mon-espace" to="/" />}
+
           <Route
             path="/mon-espace"
             render={props => (
@@ -97,12 +102,17 @@ class App extends React.Component {
             render={props => (
               <UploadContract
                 {...props}
+                {...pageCommonProps}
                 contractUrl={this.state.contractUrl}
                 test={argument => this.test(argument)}
               />
             )}
           />
-          <Route path="/paiement" render={() => <Payement />} />
+          <Route
+            path="/paiement"
+            render={() => <Payement />}
+            {...pageCommonProps}
+          />
 
           <Route render={() => <NotFoundPage />} />
         </Switch>
