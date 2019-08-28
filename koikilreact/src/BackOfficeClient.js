@@ -10,6 +10,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class BackOfficeClient extends React.Component {
+  state = {
+    date: ""
+  };
+  getDate() {
+    const date = { currentTime: new Date().toLocaleString() };
+
+    this.setState({
+      date: date
+    });
+  }
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -20,14 +30,19 @@ class BackOfficeClient extends React.Component {
           <h1>Mon Contrat</h1>
 
           <p>
-            Contrat N° 2342 souscrit le 17 Mai 2019
-            <br /> Mr Lucas Finchelstein <br />
+            Contrat N° 2342 souscrit le {this.state.date}
+            <br />
+            {this.props.user.lastName} {""}
+            {this.props.user.name} <br />
             Auto-Ecole Legendre Leclerc
           </p>
         </div>
         <div className="itemCard-Client">
           <div className="singleCard-Client">
             <FontAwesomeIcon icon={faSearch} className="iconClient" />
+            <button>
+              <a href={this.props.nimporteKelProps}>voir mon contrat</a>
+            </button>
             <h3>Consulter mon contrat</h3>
             <p>
               Ton contrat Assure Ton Permis ! souscrit depuis le site de Koikil
