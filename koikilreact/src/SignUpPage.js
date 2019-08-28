@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 class SignUpPage extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   // on garde un state pour chaque input
   state = {
     lastName: "",

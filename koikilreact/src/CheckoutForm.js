@@ -10,7 +10,8 @@ import axios from "axios";
 class CheckoutForm extends React.Component {
   state = {
     complete: false,
-    inputValue: ""
+    inputValue: "",
+    email: ""
   };
 
   submit = async ev => {
@@ -27,11 +28,13 @@ class CheckoutForm extends React.Component {
       const chargeRes = await axios.post(
         "https://koikil.herokuapp.com/charge",
         {
-          token: response.token.id
+          token: response.token.id,
+          email: this.state.email,
+          name: this.state.inputValue
         }
       );
-      console.log(chargeRes);
-      console.log(response.token);
+      // console.log(".config ? ===>", chargeRes.config.data);
+      // console.log(response.token);
 
       // 10. Le backend nous confirme que le paiement a été effectué
       if (chargeRes.status === 15000) {
@@ -58,6 +61,19 @@ class CheckoutForm extends React.Component {
             value={this.state.inputValue}
             onChange={event => {
               this.setState({ inputValue: event.target.value });
+            }}
+          />
+        </label>
+        <label className="cardElement">
+          Votre email
+          <input
+            name="name"
+            type="email"
+            placeholder="email"
+            required
+            value={this.state.email}
+            onChange={event => {
+              this.setState({ email: event.target.value });
             }}
           />
         </label>

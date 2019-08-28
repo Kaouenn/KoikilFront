@@ -8,7 +8,14 @@ class UploadContract extends React.Component {
   state = {
     files: []
   };
+
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   sendFiles = async () => {
+
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
 

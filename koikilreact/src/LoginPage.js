@@ -7,7 +7,9 @@ import "./index.css";
 
 class LoginPage extends React.Component {
   // Pas besoin de state ici, on utilise Formik !
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>

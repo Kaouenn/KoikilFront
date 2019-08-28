@@ -12,6 +12,7 @@ import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 import BackOfficeClient from "./BackOfficeClient";
 
+
 class App extends React.Component {
   state = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
@@ -95,8 +96,8 @@ class App extends React.Component {
             )}
           />
 
-          <Route path="/upload" render={() => <UploadFiles />} />
 
+       
           <Route
             path="/contract"
             render={props => (
@@ -113,6 +114,7 @@ class App extends React.Component {
             render={() => <Payement />}
             {...pageCommonProps}
           />
+
 
           <Route render={() => <NotFoundPage />} />
         </Switch>

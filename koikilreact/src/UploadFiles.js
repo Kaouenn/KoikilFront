@@ -1,6 +1,7 @@
 // import { Link } from "react-router-dom";
 import React from "react";
 import MainLayout from "./MainLayout";
+import { Link } from "react-router-dom";
 import axios from "axios";
 class UploadFiles extends React.Component {
   state = {
@@ -261,9 +262,23 @@ class UploadFiles extends React.Component {
             </div>
           </div>
           {/* bouton avec la fonction sendFiles */}
-          <button className="button-go-contrat" onClick={this.sendFiles}>
-            Je valide ces documents et j'accède au contrat
-          </button>
+
+          {this.state.files.length !== 0 ? (
+            <Link
+              style={{ marginBottom: "50px" }}
+              className="button-go-contrat"
+              onClick={this.sendFiles}
+              to="/contract"
+            >
+              Je valide ces documents et j'accède au contrat
+            </Link>
+          ) : (
+            <div className="null-uploadfiles">
+              {" "}
+              vous devez télécharger vos documents pour pouvpir passer à l'étape
+              suivante
+            </div>
+          )}
         </div>
       </MainLayout>
     );

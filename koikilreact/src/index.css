@@ -1035,6 +1035,10 @@ h4 {
 .input-file {
   display: none;
 }
+
+.null-uploadfiles {
+  height: 100px;
+}
 /* -------------page /contract------------ */
 .contrat--container {
   display: flex;
@@ -1127,10 +1131,12 @@ button.contrat--download {
   height: 50px;
 }
 .button-go-contrat {
+  text-decoration: none;
   cursor: pointer;
   color: #ffffff;
   font-family: ArialRoundedMTBold;
   font-size: 18px;
+  padding: 20px;
   font-weight: 400;
   text-align: center;
   background-color: #02b79a;
@@ -1143,6 +1149,7 @@ button.contrat--download {
 .button-go-contrat a {
   color: inherit;
   text-decoration: none;
+
 }
 .trait {
   border-bottom: 1px solid red;
