@@ -8,10 +8,12 @@ import {
   faDownload,
   faPenSquare
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 class BackOfficeClient extends React.Component {
   state = {
-    date: ""
+    date: "",
+    useretautoecole: ""
   };
   getDate() {
     const date = { currentTime: new Date().toLocaleString() };
@@ -20,13 +22,17 @@ class BackOfficeClient extends React.Component {
       date: date
     });
   }
-  componentDidMount() {
+  componentDidMount = async () => {
     window.scrollTo(0, 0);
-  }
+    const response = await axios.get("https://koikil.herokuapp.com/user");
+    this.setState({ useretautoecole: response.data.users });
+  };
+
   render = () => {
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="bigCard-Client">
+          {console.log("date du state" + this.state.date)}
           <h1>Mon Contrat</h1>
           {this.props.user === null || this.props.user === undefined ? null : (
             <p>
