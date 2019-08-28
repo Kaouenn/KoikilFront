@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 
 class UploadContract extends React.Component {
   state = {
-    files: [],
-    contractUrl: ""
+    files: []
   };
   sendFiles = async () => {
     // on crée un nouveau FormData
@@ -24,12 +23,17 @@ class UploadContract extends React.Component {
       }
     };
     console.log(filesFormdata);
-    const response = await axios.post(
-      "https://koikil.herokuapp.com/contract",
-      filesFormdata,
-      config
-    );
-    this.setState({ contractUrl: response.data.file0.result.secure_url });
+    try {
+      const response = await axios.post(
+        "https://koikil.herokuapp.com/contract",
+        filesFormdata,
+        config
+      );
+      this.props.test(response.data.file0.result.secure_url);
+      // this.setState({ contractUrl: response.data.file0.result.secure_url });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   handleChange = event => {
     const files = event.target.files;
@@ -83,7 +87,7 @@ class UploadContract extends React.Component {
               </button>
               <div className="trait" />
               <button className="contrat--download">
-                <a href={this.state.contractUrl}>Voir le contrat</a>
+                <a href={this.props.contractUrl}>Voir le contrat</a>
               </button>
 
               <div className="trait" />

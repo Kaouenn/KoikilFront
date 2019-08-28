@@ -1318,27 +1318,26 @@ button.contrat--download {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 15px;
+
   align-items: center;
 }
 .singleCard-Client .iconClient {
-  width: 47px;
-  height: 47px;
+  width: 60px;
+  height: 60px;
   color: white;
   border-radius: 50%;
   background: orange;
-  border: 18px solid orange;
+  border: 17px solid orange;
+}
 
 /* ///////////////////////////Payment/////////////// */
 
 .all-contain-payement {
   width: 100%;
-
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   align-items: center;
 }
-
 .side-left-payment,
 .side-right-payment {
   width: 50%;
@@ -1451,5 +1450,4 @@ input:focus,
 
 * {
   box-sizing: border-box;
-
 }

@@ -12,15 +12,19 @@ import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 import BackOfficeClient from "./BackOfficeClient";
 
-
 class App extends React.Component {
   state = {
-    user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null
+    user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
+    contractUrl: ""
   };
 
   setUser = user => {
     Cookies.set("user", JSON.stringify(user));
     this.setState({ user });
+  };
+  test = argument => {
+    console.log(argument);
+    this.setState({ contractUrl: argument });
   };
 
   render = () => {
@@ -77,12 +81,27 @@ class App extends React.Component {
           />
           <Route
             path="/mon-espace"
-            render={() => <BackOfficeClient {...pageCommonProps} />}
+            render={props => (
+              <BackOfficeClient
+                {...props}
+                {...pageCommonProps}
+                nimporteKelProps={this.state.contractUrl}
+              />
+            )}
           />
 
           <Route path="/upload" render={() => <UploadFiles />} />
 
-          <Route path="/contract" render={() => <UploadContract />} />
+          <Route
+            path="/contract"
+            render={props => (
+              <UploadContract
+                {...props}
+                contractUrl={this.state.contractUrl}
+                test={argument => this.test(argument)}
+              />
+            )}
+          />
           <Route path="/paiement" render={() => <Payement />} />
 
           <Route render={() => <NotFoundPage />} />
