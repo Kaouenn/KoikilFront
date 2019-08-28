@@ -10,15 +10,22 @@ import UploadFiles from "./UploadFiles";
 import UploadContract from "./UploadContract";
 import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
+import BackOfficeClient from "./BackOfficeClient";
+
 
 class App extends React.Component {
   state = {
-    user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null
+    user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
+    contractUrl: ""
   };
 
   setUser = user => {
     Cookies.set("user", JSON.stringify(user));
     this.setState({ user });
+  };
+  test = argument => {
+    console.log(argument);
+    this.setState({ contractUrl: argument });
   };
 
   render = () => {
@@ -69,13 +76,45 @@ class App extends React.Component {
             path="/loged1"
             render={() => <UploadFiles {...pageCommonProps} />}
           />
+          {this.state.user === null && (
+            <Redirect from="/remboursement" to="/" />
+          )}
           <Route
             path="/remboursement"
             render={() => <RefuntDrivingSchool {...pageCommonProps} />}
           />
+          {this.state.user === null && <Redirect from="/mon-espace" to="/" />}
 
-          <Route path="/contract" render={() => <UploadContract />} />
-          <Route path="/paiement" render={() => <Payement />} />
+          <Route
+            path="/mon-espace"
+            render={props => (
+              <BackOfficeClient
+                {...props}
+                {...pageCommonProps}
+                nimporteKelProps={this.state.contractUrl}
+              />
+            )}
+          />
+
+
+       
+          <Route
+            path="/contract"
+            render={props => (
+              <UploadContract
+                {...props}
+                {...pageCommonProps}
+                contractUrl={this.state.contractUrl}
+                test={argument => this.test(argument)}
+              />
+            )}
+          />
+          <Route
+            path="/paiement"
+            render={() => <Payement />}
+            {...pageCommonProps}
+          />
+
 
           <Route render={() => <NotFoundPage />} />
         </Switch>

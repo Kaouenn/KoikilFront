@@ -15,7 +15,7 @@ class UploadFiles extends React.Component {
     pic2: false,
     pic3: false
   };
-  sendFiles = () => {
+  sendFiles = async () => {
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
     for (let i = 0; i < this.state.files.length; i++) {
@@ -28,7 +28,12 @@ class UploadFiles extends React.Component {
         "content-type": "multipart/form-data"
       }
     };
-    axios.post("https://koikil.herokuapp.com/upload", filesFormdata, config);
+    const response = await axios.post(
+      "https://koikil.herokuapp.com/upload",
+      filesFormdata,
+      config
+    );
+    console.log(response);
   };
   //ici on copie les éléments pour pouvoir modifier
   handleChange = event => {

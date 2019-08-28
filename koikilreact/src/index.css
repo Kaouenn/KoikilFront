@@ -1142,8 +1142,15 @@ button.contrat--download {
   background-color: #02b79a;
   border: 1px solid #02b79a;
   border-radius: 10px;
+  width: 363px;
+  height: 65px;
+  text-decoration: none;
 }
+.button-go-contrat a {
+  color: inherit;
+  text-decoration: none;
 
+}
 .trait {
   border-bottom: 1px solid red;
   content: "";
@@ -1257,16 +1264,87 @@ button.contrat--download {
   width: 660px;
   text-align: justify;
 }
+
+/* ///////////////////////////BackOfficeClient//////////////////////////////// */
+.bigCard-Client {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+}
+.bigCard-Client h1 {
+  color: #212b36;
+  font-family: Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 43px;
+}
+.bigCard-Client p {
+  color: #67758d;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  margin: 50px 0;
+}
+.itemCard-Client {
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  width: 85%;
+
+  margin-bottom: 50px;
+}
+.itemCard-Client .singleCard-Client h3 {
+  color: #283040;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+.itemCard-Client .singleCard-Client p {
+  color: #67758d;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  text-align: center;
+}
+.singleCard-Client {
+  border: 1px solid #f6f9fc;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  width: 19.5%;
+  height: 300px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  align-items: center;
+}
+.singleCard-Client .iconClient {
+  width: 60px;
+  height: 60px;
+  color: white;
+  border-radius: 50%;
+  background: orange;
+  border: 17px solid orange;
+}
+
 /* ///////////////////////////Payment/////////////// */
 
 .all-contain-payement {
   width: 100%;
-
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   align-items: center;
 }
-
 .side-left-payment,
 .side-right-payment {
   width: 50%;
