@@ -12,7 +12,6 @@ import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 import BackOfficeClient from "./BackOfficeClient";
 
-
 class App extends React.Component {
   state = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
@@ -74,14 +73,16 @@ class App extends React.Component {
           {this.state.user === null && <Redirect from="/loged1" to="/" />}
           <Route
             path="/loged1"
-            render={() => <UploadFiles {...pageCommonProps} />}
+            render={props => <UploadFiles {...props} {...pageCommonProps} />}
           />
           {this.state.user === null && (
             <Redirect from="/remboursement" to="/" />
           )}
           <Route
             path="/remboursement"
-            render={() => <RefuntDrivingSchool {...pageCommonProps} />}
+            render={props => (
+              <RefuntDrivingSchool {...props} {...pageCommonProps} />
+            )}
           />
           {this.state.user === null && <Redirect from="/mon-espace" to="/" />}
 
@@ -96,8 +97,6 @@ class App extends React.Component {
             )}
           />
 
-
-       
           <Route
             path="/contract"
             render={props => (
@@ -111,10 +110,8 @@ class App extends React.Component {
           />
           <Route
             path="/paiement"
-            render={() => <Payement />}
-            {...pageCommonProps}
+            render={props => <Payement {...props} {...pageCommonProps} />}
           />
-
 
           <Route render={() => <NotFoundPage />} />
         </Switch>

@@ -9,13 +9,11 @@ class UploadContract extends React.Component {
     files: []
   };
 
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
   sendFiles = async () => {
-
     // on crée un nouveau FormData
     const filesFormdata = new FormData();
 
@@ -66,7 +64,7 @@ class UploadContract extends React.Component {
             </h3>
             <div className="center">
               <button className="contrat--download">
-                <a href="/MonRécapGIT.pdf" download>
+                <a href="/Contrat v2.pdf" download>
                   Lire / télécharger le contrat
                 </a>
               </button>
