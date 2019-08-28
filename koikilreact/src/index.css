@@ -442,6 +442,7 @@ h4 {
   padding: 50px;
   border: 1px solid #f6f9fc;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1150,7 +1151,6 @@ button.contrat--download {
 .button-go-contrat a {
   color: inherit;
   text-decoration: none;
-
 }
 .trait {
   border-bottom: 1px solid red;
