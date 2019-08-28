@@ -27,7 +27,7 @@ pk_test_sByjxI905a9zsWUQi7wHtuqP00VrK0mt7X"
               <div className="stripe-form">
                 <h2>Paiement par carte </h2>
                 <Elements>
-                  <CheckoutForm />
+                  <CheckoutForm setTime={this.props.setTime} />
                 </Elements>
               </div>
             </StripeProvider>
