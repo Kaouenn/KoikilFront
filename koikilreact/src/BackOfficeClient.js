@@ -8,7 +8,6 @@ import {
   faDownload,
   faPenSquare
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 
 class BackOfficeClient extends React.Component {
   state = {
@@ -24,11 +23,11 @@ class BackOfficeClient extends React.Component {
   }
   componentDidMount = async () => {
     window.scrollTo(0, 0);
-    const response = await axios.get("https://koikil.herokuapp.com/user");
-    this.setState({ useretautoecole: response.data.users });
   };
 
   render = () => {
+    console.log("this.props.user", this.props.user);
+
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="bigCard-Client">
@@ -40,7 +39,7 @@ class BackOfficeClient extends React.Component {
               <br />
               {this.props.user.lastName} {""}
               {this.props.user.name} <br />
-              Auto-Ecole Legendre Leclerc
+              Auto-Ecole : {this.props.user.autoEcole}
             </p>
           )}
         </div>
