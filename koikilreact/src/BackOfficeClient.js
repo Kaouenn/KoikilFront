@@ -28,14 +28,15 @@ class BackOfficeClient extends React.Component {
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="bigCard-Client">
           <h1>Mon Contrat</h1>
-
-          <p>
-            Contrat N° 2342 souscrit le {this.state.date}
-            <br />
-            {this.props.user.lastName} {""}
-            {this.props.user.name} <br />
-            Auto-Ecole Legendre Leclerc
-          </p>
+          {this.props.user === null || this.props.user === undefined ? null : (
+            <p>
+              Contrat N° 2342 souscrit le {this.state.date}
+              <br />
+              {this.props.user.lastName} {""}
+              {this.props.user.name} <br />
+              Auto-Ecole Legendre Leclerc
+            </p>
+          )}
         </div>
         <div className="itemCard-Client">
           <div className="singleCard-Client">
