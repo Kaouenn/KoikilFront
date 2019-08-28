@@ -11,7 +11,8 @@ import {
 
 class BackOfficeClient extends React.Component {
   state = {
-    date: ""
+    date: "",
+    useretautoecole: ""
   };
   getDate() {
     const date = { currentTime: new Date().toLocaleString() };
@@ -20,13 +21,17 @@ class BackOfficeClient extends React.Component {
       date: date
     });
   }
-  componentDidMount() {
+  componentDidMount = async () => {
     window.scrollTo(0, 0);
-  }
+  };
+
   render = () => {
+    console.log("this.props.user", this.props.user);
+
     return (
       <MainLayout user={this.props.user} setUser={this.props.setUser}>
         <div className="bigCard-Client">
+          {console.log("date du state" + this.state.date)}
           <h1>Mon Contrat</h1>
           {this.props.user === null || this.props.user === undefined ? null : (
             <p>
@@ -34,7 +39,7 @@ class BackOfficeClient extends React.Component {
               <br />
               {this.props.user.lastName} {""}
               {this.props.user.name} <br />
-              Auto-Ecole Legendre Leclerc
+              Auto-Ecole : {this.props.user.autoEcole}
             </p>
           )}
         </div>

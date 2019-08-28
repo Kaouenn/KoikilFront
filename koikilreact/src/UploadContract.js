@@ -71,7 +71,7 @@ class UploadContract extends React.Component {
                 </a>
               </button>
 
-              <div className="input-line">
+              <div className="input-line" style={{ marginTop: "1rem" }}>
                 <h3>Upload du contrat</h3>
                 <div className="input-image">
                   <div className="input-design">
@@ -93,7 +93,7 @@ class UploadContract extends React.Component {
                 Envoyer le contrat signé
               </button>
               <div className="trait" />
-              <button className="contrat--download">
+              <button className="contrat--download opacity">
                 <a href={this.props.contractUrl}>Voir le contrat</a>
               </button>
 
