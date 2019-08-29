@@ -15,7 +15,10 @@ class BackOfficeClient extends React.Component {
   };
 
   render = () => {
-    console.log("this.props.user", this.props.user);
+    console.log(
+      "this.props.nimporteKelProps ===>",
+      this.props.nimporteKelProps
+    );
 
     return (
       <MainLayout

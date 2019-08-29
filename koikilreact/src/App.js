@@ -95,14 +95,16 @@ class App extends React.Component {
           {this.state.user === null && <Redirect from="/loged1" to="/" />}
           <Route
             path="/loged1"
-            render={() => <UploadFiles {...pageCommonProps} />}
+            render={props => <UploadFiles {...props} {...pageCommonProps} />}
           />
           {this.state.user === null && (
             <Redirect from="/remboursement" to="/" />
           )}
           <Route
             path="/remboursement"
-            render={() => <RefuntDrivingSchool {...pageCommonProps} />}
+            render={props => (
+              <RefuntDrivingSchool {...props} {...pageCommonProps} />
+            )}
           />
           {this.state.user === null && <Redirect from="/mon-espace" to="/" />}
 
@@ -132,7 +134,11 @@ class App extends React.Component {
 
           <Route
             path="/paiement"
+<<<<<<< HEAD
+            render={props => <Payement {...props} {...pageCommonProps} />}
+=======
             render={props => <Payement {...pageCommonProps} />}
+>>>>>>> 3ff589e2e430915d3490c408f5d6ae711dc9a714
           />
 
           <Route render={() => <NotFoundPage />} />
