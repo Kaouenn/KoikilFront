@@ -51,6 +51,8 @@ class CheckoutForm extends React.Component {
     }
   };
   render() {
+    console.log(this.state.created);
+
     if (this.state.complete) {
       // 11. Le paiement est effectué
       return <Redirect to="/mon-espace" />;

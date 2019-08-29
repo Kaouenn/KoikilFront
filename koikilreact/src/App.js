@@ -28,12 +28,24 @@ class App extends React.Component {
     this.setState({ contractUrl: argument });
   };
   setTime = date => {
+    let options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
     let dateCreated = new Date(date * 1000);
+    dateCreated = dateCreated.toLocaleDateString("fr-FR", options);
+
+    console.log(dateCreated);
+
     this.setState({ dateCreatedContract: dateCreated }, () =>
       console.log(this.state.dateCreatedContract)
     );
   };
   render = () => {
+    console.log("type date ===>", this.state.dateCreatedContract);
+
     const pageCommonProps = {
       // on pass le state user pour que le Header puisse afficher "se connecter" / "se deconnecter"
       user: this.state.user,
