@@ -12,11 +12,11 @@ import Payement from "./Payement";
 import RefuntDrivingSchool from "./RefundDrivingSchool";
 import BackOfficeClient from "./BackOfficeClient";
 
-
 class App extends React.Component {
   state = {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
-    contractUrl: ""
+    contractUrl: "",
+    dateCreatedContract: null
   };
 
   setUser = user => {
@@ -27,13 +27,34 @@ class App extends React.Component {
     console.log(argument);
     this.setState({ contractUrl: argument });
   };
+  setTime = date => {
+    let options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
+    let dateCreated = new Date(date * 1000);
+    dateCreated = dateCreated.toLocaleDateString("fr-FR", options);
 
+    console.log(dateCreated);
+
+    this.setState({ dateCreatedContract: dateCreated }, () =>
+      console.log(this.state.dateCreatedContract)
+    );
+  };
   render = () => {
+    console.log("type date ===>", this.state.dateCreatedContract);
+
     const pageCommonProps = {
       // on pass le state user pour que le Header puisse afficher "se connecter" / "se deconnecter"
       user: this.state.user,
       // on passe setUser pour faire fonctionner le bouton "se deconnecter"
-      setUser: this.setUser
+      setUser: this.setUser,
+      // on passe setUser pour faire fonctionner le bouton "se deconnecter"
+      setTime: this.setTime,
+      // on pass le state user pour que le Header puisse afficher "se connecter" / "se deconnecter"
+      createdContract: this.state.dateCreatedContract
     };
     // on créer un un objet qui permet de passer les memes props a plusieurs composants
 
@@ -96,8 +117,6 @@ class App extends React.Component {
             )}
           />
 
-
-       
           <Route
             path="/contract"
             render={props => (
@@ -111,10 +130,8 @@ class App extends React.Component {
           />
           <Route
             path="/paiement"
-            render={() => <Payement />}
-            {...pageCommonProps}
+            render={props => <Payement {...pageCommonProps} />}
           />
-
 
           <Route render={() => <NotFoundPage />} />
         </Switch>

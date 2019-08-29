@@ -10,18 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class BackOfficeClient extends React.Component {
-  state = {
-    date: "",
-    useretautoecole: ""
-  };
-  getDate() {
-    const date = { currentTime: new Date().toLocaleString() };
 
-    this.setState({
-      date: date
-    });
-  }
   componentDidMount = async () => {
+
     window.scrollTo(0, 0);
   };
 
@@ -29,13 +20,17 @@ class BackOfficeClient extends React.Component {
     console.log("this.props.user", this.props.user);
 
     return (
-      <MainLayout user={this.props.user} setUser={this.props.setUser}>
+      <MainLayout
+        user={this.props.user}
+        setUser={this.props.setUser}
+        createdContract={this.props.createdContract}
+      >
         <div className="bigCard-Client">
           {console.log("date du state" + this.state.date)}
           <h1>Mon Contrat</h1>
           {this.props.user === null || this.props.user === undefined ? null : (
             <p>
-              Contrat N° 2342 souscrit le {this.state.date}
+              Contrat N° 2342 souscrit le {this.props.createdContract}
               <br />
               {this.props.user.lastName} {""}
               {this.props.user.name} <br />

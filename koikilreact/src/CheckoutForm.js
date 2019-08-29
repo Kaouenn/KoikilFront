@@ -1,5 +1,6 @@
 // Créer un state ppour le input et a replecer dans le name .createToken
 import React from "react";
+import { Link, Redirect } from "react-router-dom";
 import {
   CardNumberElement,
   CardExpiryElement,
@@ -11,7 +12,8 @@ class CheckoutForm extends React.Component {
   state = {
     complete: false,
     inputValue: "",
-    email: ""
+    email: "",
+    created: null
   };
 
   submit = async ev => {
@@ -22,7 +24,7 @@ class CheckoutForm extends React.Component {
     });
     // 4. Stripe nous retourne un token
     console.log(response.token);
-
+    this.setState({ created: response.token.created });
     // 5. on envoie ce token au backend
     try {
       const chargeRes = await axios.post(
@@ -34,7 +36,11 @@ class CheckoutForm extends React.Component {
         }
       );
       // console.log(".config ? ===>", chargeRes.config.data);
-      // console.log(response.token);
+      console.log(chargeRes.data);
+      if (chargeRes.data.status === "succeeded") {
+        this.props.setTime(this.state.created);
+        this.setState({ complete: true });
+      }
 
       // 10. Le backend nous confirme que le paiement a été effectué
       if (chargeRes.status === 15000) {
@@ -45,9 +51,11 @@ class CheckoutForm extends React.Component {
     }
   };
   render() {
+    console.log(this.state.created);
+
     if (this.state.complete) {
       // 11. Le paiement est effectué
-      return <h1>Purchase Complete</h1>;
+      return <Redirect to="/mon-espace" />;
     }
     return (
       <div className="checkout">
@@ -92,9 +100,10 @@ class CheckoutForm extends React.Component {
         </label>
 
         <button
-          style={{ marginTop: "20px" }}
+          style={{ marginTop: "20px", textDecoration: "none" }}
           onClick={this.submit}
           className="send-stripe"
+          to="/mon-espace"
         >
           Confirmer le paiement
         </button>
