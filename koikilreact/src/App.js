@@ -116,7 +116,7 @@ class App extends React.Component {
               />
             )}
           />
-
+          {this.state.user === null && <Redirect from="/contract" to="/" />}
           <Route
             path="/contract"
             render={props => (
@@ -128,6 +128,8 @@ class App extends React.Component {
               />
             )}
           />
+          {this.state.user === null && <Redirect from="/paiement" to="/" />}
+
           <Route
             path="/paiement"
             render={props => <Payement {...pageCommonProps} />}

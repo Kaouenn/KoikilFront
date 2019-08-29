@@ -42,7 +42,7 @@ class Header extends React.Component {
                 </Link>
               </h1>
             </div>
-            <div className="groupe1-header-loged">
+            {/* <div className="groupe1-header-loged">
               <Link className="link-header" to="/loged1">
                 Accueil
               </Link>
@@ -50,11 +50,9 @@ class Header extends React.Component {
               <Link className="link-header" to="/assure-ton-permis">
                 Assure Ton Permis !
               </Link>
-            </div>
+            </div> */}
             <div className="loged">
-
               <h2 className="loged-name"> Hello {this.props.user.name}</h2>
-
 
               <div>
                 <h2

@@ -10,9 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class BackOfficeClient extends React.Component {
-
   componentDidMount = async () => {
-
     window.scrollTo(0, 0);
   };
 
@@ -26,7 +24,6 @@ class BackOfficeClient extends React.Component {
         createdContract={this.props.createdContract}
       >
         <div className="bigCard-Client">
-          {console.log("date du state" + this.state.date)}
           <h1>Mon Contrat</h1>
           {this.props.user === null || this.props.user === undefined ? null : (
             <p>
