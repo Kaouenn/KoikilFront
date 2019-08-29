@@ -134,11 +134,7 @@ class App extends React.Component {
 
           <Route
             path="/paiement"
-<<<<<<< HEAD
             render={props => <Payement {...props} {...pageCommonProps} />}
-=======
-            render={props => <Payement {...pageCommonProps} />}
->>>>>>> 3ff589e2e430915d3490c408f5d6ae711dc9a714
           />
 
           <Route render={() => <NotFoundPage />} />
