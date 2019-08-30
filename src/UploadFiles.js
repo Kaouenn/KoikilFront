@@ -147,7 +147,7 @@ class UploadFiles extends React.Component {
     try {
       await axios.post("https://koikil.herokuapp.com/updateUser", {
         email: this.props.user.email,
-        autoecole: this.state.UserAutoecole
+        autoEcole: this.state.UserAutoecole
       });
       console.log(this.state.UserAutoecole);
     } catch (e) {
